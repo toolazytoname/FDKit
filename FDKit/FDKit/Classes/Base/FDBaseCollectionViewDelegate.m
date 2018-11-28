@@ -2,7 +2,7 @@
 //  BPWBaseCollectionViewDelegate.m
 //  AFNetworking
 //
-//  Created by Yiche on 2018/8/14.
+//  Created by Lazy on 2018/8/14.
 //
 
 #import "FDBaseCollectionViewDelegate.h"

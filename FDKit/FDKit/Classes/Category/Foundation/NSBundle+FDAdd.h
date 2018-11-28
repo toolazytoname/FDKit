@@ -21,6 +21,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface NSBundle (FDAdd)
 
+
+/**
+ Description get sub bundle under main bundle
+
+ @param name name description
+ @return return value description
+ */
++ (NSBundle *)fd_subBundleWithName:(NSString *)name;
+
 /**
  An array of NSNumber objects, shows the best order for path scale search.
  e.g. iPhone3GS:@[@1,@2,@3] iPhone5:@[@2,@3,@1]  iPhone6 Plus:@[@3,@2,@1]

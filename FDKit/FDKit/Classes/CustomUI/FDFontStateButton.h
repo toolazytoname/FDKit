@@ -1,8 +1,8 @@
 //
-//  BPWFontStateButton.h
+//  FDWFontStateButton.h
 //  AFNetworking
 //
-//  Created by Yiche on 2018/8/17.
+//  Created by Lazy on 2018/8/17.
 //
 
 #import <UIKit/UIKit.h>
@@ -18,7 +18,7 @@
  * If a font is not specified for a given state, then
  * the System font will be displayed with a font size of 15.
  */
-@interface BPWFontStateButton : UIButton
+@interface FDFontStateButton : UIButton
 @property (strong, nonatomic) UIFont *normalFont;
 @property (strong, nonatomic) UIFont *highlightedFont;
 @property (strong, nonatomic) UIFont *selectedFont;

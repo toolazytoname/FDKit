@@ -14,6 +14,7 @@
 #import "NSNumber+FDAdd.h"
 #import "UIDevice+FDAdd.h"
 #import "FDCategoriesMacro.h"
+#import "UIScreen+FDAdd.h"
 
 FDSYNTH_DUMMY_CLASS(NSString_FDAdd)
 
@@ -375,6 +376,10 @@ FDSYNTH_DUMMY_CLASS(NSString_FDAdd)
     return [self stringByAppendingFormat:@"@%@x", @(scale)];
 }
 
+- (NSString *)fd_stringByAppendingNameScreenScale {
+    return [self fd_stringByAppendingNameScale:[UIScreen fd_screenScale]];
+}
+
 - (NSString *)fd_stringByAppendingPathScale:(CGFloat)scale {
     if (fabs(scale - 1) <= __FLT_EPSILON__ || self.length == 0 || [self hasSuffix:@"/"]) return self.copy;
     NSString *ext = self.pathExtension;
@@ -382,6 +387,10 @@ FDSYNTH_DUMMY_CLASS(NSString_FDAdd)
     if (ext.length > 0) extRange.location -= 1;
     NSString *scaleStr = [NSString stringWithFormat:@"@%@x", @(scale)];
     return [self stringByReplacingCharactersInRange:extRange withString:scaleStr];
+}
+            
+- (NSString *)fd_stringByAppendingPathScreenScale {
+    return [self fd_stringByAppendingPathScale:[UIScreen fd_screenScale]];
 }
 
 - (CGFloat)fd_pathScale {

@@ -31,6 +31,8 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'FDKit/Classes/**/*'
+  s.requires_arc = ['Classes/FDKit/Category/NSObject+FDAddForARC.m', 'Classes/FDKit/Category/NSThread+FDAdd.m']
+
   
   # s.resource_bundles = {
   #   'FDKit' => ['FDKit/Assets/*.png']

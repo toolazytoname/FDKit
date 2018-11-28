@@ -2,12 +2,12 @@
 //  BPWLineHeightLabel.m
 //  AFNetworking
 //
-//  Created by Yiche on 2018/9/19.
+//  Created by Lazy on 2018/9/19.
 //
 
-#import "BPWLineHeightLabel.h"
+#import "FDLineHeightLabel.h"
 
-@implementation BPWLineHeightLabel
+@implementation FDLineHeightLabel
 
 - (void)setText:(NSString *)text {
     if (!text.length || self.lineHeight==0) {

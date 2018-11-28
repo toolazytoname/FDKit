@@ -2,12 +2,12 @@
 //  BPWFontStateButton.m
 //  AFNetworking
 //
-//  Created by Yiche on 2018/8/17.
+//  Created by Lazy on 2018/8/17.
 //
 
-#import "BPWFontStateButton.h"
+#import "FDFontStateButton.h"
 
-@implementation BPWFontStateButton
+@implementation FDFontStateButton
 
 //Sets one of the font properties, depending on which state was passed
 - (void)setFont:(UIFont *)font forState:(NSUInteger)state

@@ -17,6 +17,12 @@ FDSYNTH_DUMMY_CLASS(NSBundle_FDAdd)
 
 @implementation NSBundle (FDAdd)
 
++ (NSBundle *)fd_subBundleWithName:(NSString *)name {
+    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:name ofType:@"bundle"];
+    NSBundle *subBundle = [NSBundle bundleWithPath:bundlePath];
+    return subBundle;
+}
+
 + (NSArray *)fd_preferredScales {
     static NSArray *scales;
     static dispatch_once_t onceToken;

@@ -128,6 +128,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (nullable UIImage *)fd_imageWithSize:(CGSize)size drawBlock:(void (^)(CGContextRef context))drawBlock;
 
+
+/**
+ Description save memory
+
+ @param bundle bundle description
+ @param imageName imageName description
+ @return return value description
+ */
++ (UIImage *)fd_imageWithContentsOfFileInBundle:(NSBundle *)bundle WithName:(NSString *)imageName;
+
 #pragma mark - Image Info
 ///=============================================================================
 /// @name Image Info

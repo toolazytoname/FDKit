@@ -19,6 +19,7 @@
 #import <CoreText/CoreText.h>
 #import <objc/runtime.h>
 #import "FDCGUtilities.h"
+#import "NSBundle+FDAdd.h"
 
 FDSYNTH_DUMMY_CLASS(UIImage_FDAdd)
 
@@ -270,6 +271,15 @@ static NSTimeInterval _yy_CGImageSourceGetGIFFrameDelayAtIndex(CGImageSourceRef 
     drawBlock(context);
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
+    return image;
+}
+
++ (UIImage *)fd_imageWithContentsOfFileInBundle:(NSBundle *)bundle WithName:(NSString *)imageName {
+    if (!imageName || imageName.length == 0) {
+        return nil;
+    }
+    NSString *path = [bundle fd_pathForScaledResource:imageName ofType:@"png"];
+    UIImage *image = [UIImage imageWithContentsOfFile:path];
     return image;
 }
 

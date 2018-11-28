@@ -332,6 +332,18 @@ assert(res == 0); \
 #undef FDMUTEX_ASSERT_ON_ERROR
 }
 
+/**
+ set UIScrollView ContentInset Never
+ */
+static inline void adjustmentBehaviorNeverScrollView(UIScrollView *scrollView, UIViewController *viewController) {
+    if (@available(iOS 11.0, *)) {
+        scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }else {
+        viewController.automaticallyAdjustsScrollViewInsets = NO;
+    }
+    
+}
+
 
 FD_EXTERN_C_END
 #endif

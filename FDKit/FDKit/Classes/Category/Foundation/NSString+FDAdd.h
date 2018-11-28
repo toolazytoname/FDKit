@@ -338,6 +338,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (NSString *)fd_stringByAppendingNameScale:(CGFloat)scale;
 
+- (NSString *)fd_stringByAppendingNameScreenScale;
+
 /**
  Add scale modifier to the file path (with path extension),
  From @"name.png" to @"name@2x.png".
@@ -359,6 +361,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (NSString *)fd_stringByAppendingPathScale:(CGFloat)scale;
 
+- (NSString *)fd_stringByAppendingPathScreenScale;
 /**
  Return the path scale.
  

@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'FDKit_Example' do
+  pod 'FDKit', :path => '../'
+
+  target 'FDKit_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

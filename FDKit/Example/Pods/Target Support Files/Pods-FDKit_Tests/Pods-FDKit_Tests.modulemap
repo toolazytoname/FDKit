@@ -1,0 +1,6 @@
+framework module Pods_FDKit_Tests {
+  umbrella header "Pods-FDKit_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

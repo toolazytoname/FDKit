@@ -1,0 +1,6 @@
+framework module FDKit {
+  umbrella header "FDKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

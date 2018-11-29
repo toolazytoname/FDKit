@@ -22,5 +22,13 @@
   "requires_arc": [
     "Classes/FDKit/Category/NSObject+FDAddForARC.m",
     "Classes/FDKit/Category/NSThread+FDAdd.m"
-  ]
+  ],
+  "dependencies": {
+    "FMDB": [
+
+    ],
+    "SDWebImage": [
+
+    ]
+  }
 }

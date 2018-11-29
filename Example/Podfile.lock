@@ -1,15 +1,30 @@
 PODS:
-  - FDKit (0.1.0)
+  - FDKit (0.1.0):
+    - FMDB
+    - SDWebImage
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
+  - SDWebImage (4.4.2):
+    - SDWebImage/Core (= 4.4.2)
+  - SDWebImage/Core (4.4.2)
 
 DEPENDENCIES:
   - FDKit (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - FMDB
+    - SDWebImage
 
 EXTERNAL SOURCES:
   FDKit:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FDKit: 1c04b31b2e053ad390766d17e24fb8f4e186d618
+  FDKit: 24efe0aa60469fa9c89b44c77a43283443c6d3bb
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
 
 PODFILE CHECKSUM: 7d250927e890c48520d558ae8fe315a5307e4772
 

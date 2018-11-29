@@ -50,11 +50,13 @@
 #import "UIViewController+FDAdd.h"
 #import "FDFontStateButton.h"
 #import "FDLineHeightLabel.h"
+#import "FDDebugObserver.h"
 #import "FDChangeLoctionUtil.h"
 #import "FDDebugObserver.h"
 #import "FDGuideView.h"
 #import "FDLeftAlignedFlowLayout.h"
 #import "FDSKUDataFilter.h"
+#import "FDWebImagePrefetcher.h"
 
 FOUNDATION_EXPORT double FDKitVersionNumber;
 FOUNDATION_EXPORT const unsigned char FDKitVersionString[];

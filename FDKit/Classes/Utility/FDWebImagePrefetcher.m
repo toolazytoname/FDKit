@@ -12,25 +12,31 @@
 static const NSInteger kDefaultCacheMaxCacheAge = 60 * 60 * 24 * 7; // 1 week
 static const NSInteger kDefaultCacheMaxCacheSize = 5 * 1024 * 1024;
 
-
 @interface FDWebImagePrefetcher()
 @property (nonatomic, strong) SDWebImagePrefetcher *webImagePrefetcher;
 @property (nonatomic, strong) SDWebImageManager *webImageManager;
 @property (nonatomic, strong) SDImageCache *imageCache;
 @property (nonatomic, copy) NSString *cacheDirectory;
-@property (nonatomic, assign) NSInteger cacheAge;
-@property (nonatomic, assign) NSInteger cacheSize;
-@property (nonatomic, copy, nullable) SDWebImageCacheKeyFilterBlock cacheKeyFilter;
 @end
 
 @implementation FDWebImagePrefetcher
 
-- (instancetype)initWithCacheDirectory:(NSString *)cacheDirectory {
+#pragma mark - init
+- (instancetype)init{
     self = [super init];
-    if (self && cacheDirectory) {
-        _cacheDirectory = cacheDirectory;
+    if (self) {
+        NSArray<NSString *> *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+        _cacheDirectory = [paths[0] stringByAppendingPathComponent:NSStringFromClass(self.class)];
         _cacheAge = kDefaultCacheMaxCacheAge;
         _cacheSize = kDefaultCacheMaxCacheSize;
+    }
+    return self;
+}
+
+- (instancetype)initWithCacheDirectory:(NSString *)cacheDirectory {
+    self = [self init];
+    if (self && cacheDirectory) {
+        _cacheDirectory = cacheDirectory;
     }
     return self;
 }
@@ -44,7 +50,7 @@ static const NSInteger kDefaultCacheMaxCacheSize = 5 * 1024 * 1024;
     BOOL allCached = NO;
     for (int i=0; i<urls.count; i++) {
         if (self.cacheKeyFilter) {
-            NSString *key = self.cacheKeyFilter([urls fd_:i]);
+            NSString *key = self.cacheKeyFilter([urls fd_objectOrNilAtIndex:i]);
             if (![self.imageCache imageFromCacheForKey:key]) {
                 return allCached;
             }
@@ -61,7 +67,7 @@ static const NSInteger kDefaultCacheMaxCacheSize = 5 * 1024 * 1024;
 - (NSArray *)imagesForKeys:(NSArray *)keys {
     __block NSMutableArray *images = [[NSMutableArray alloc] init];
     [keys enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [images BPT_addObj:[self imageForKey:obj]];
+        [images fd_appendObject:[self imageForKey:obj]];
     }];
     return images;
 }
@@ -69,12 +75,26 @@ static const NSInteger kDefaultCacheMaxCacheSize = 5 * 1024 * 1024;
 - (void)setCacheAge:(NSInteger)cacheAge {
     if (_cacheAge != cacheAge) {
         _cacheAge = cacheAge;
+        _imageCache.config.maxCacheAge = _cacheAge;
     }
 }
 
 - (void)setCacheSize:(NSInteger)cacheSize {
-    if (!_cacheSize != cacheSize) {
+    if (_cacheSize != cacheSize) {
         _cacheSize = cacheSize;
+        _imageCache.config.maxCacheSize = _cacheSize;
+    }
+}
+
+- (void)setCacheKeyFilter:(SDWebImageCacheKeyFilterBlock)cacheKeyFilter {
+    if (_cacheKeyFilter != cacheKeyFilter) {
+        _cacheKeyFilter = cacheKeyFilter;
+        self.webImageManager.cacheKeyFilter = ^NSString * _Nullable(NSURL * _Nullable url) {
+            if (cacheKeyFilter) {
+                return  cacheKeyFilter(url);
+            }
+            return nil;
+        };
     }
 }
 
@@ -112,15 +132,4 @@ static const NSInteger kDefaultCacheMaxCacheSize = 5 * 1024 * 1024;
     }
     return _imageCache;
 }
-
-- (NSString *)cacheDirectory {
-    if (!_cacheDirectory) {
-        ///如果外部没有传入缓存路径，那么就会用默认值
-        NSArray<NSString *> *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-        _cacheDirectory = [paths[0] stringByAppendingPathComponent:NSStringFromClass(self.class)];
-    }
-    return _cacheDirectory;
-}
-
-
 @end

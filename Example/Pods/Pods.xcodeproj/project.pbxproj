@@ -73,6 +73,8 @@
 		5E683697A7EE68BA511CE2F18A3478C6 /* SDWebImageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 853BEE0CCFC327A794EF6E6F5ADF47E1 /* SDWebImageManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		617C02AC6CA2E7132EEEDE6EBF4E9DC5 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 080D510651F2F857F5DAA14737A19EAD /* FMResultSet.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		61F83B6FA6A0BF903E2DC7A1807D2361 /* UIViewController+FDAdd.h in Headers */ = {isa = PBXBuildFile; fileRef = 19F45F274E3C1A63EA13CE2B931ABFC8 /* UIViewController+FDAdd.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6373784621B00EB3000832E2 /* FDDebugObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = BBAE4D92FDE025FF4A960B3FF86692D3 /* FDDebugObserver.m */; };
+		6373784721B00EB3000832E2 /* FDDebugObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = A2816524D957F635CAC889F2F18CE2F3 /* FDDebugObserver.h */; };
 		6407D9B5958ED55DDDE81217BD14D1EE /* NSThread+FDAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = D1396E58D2B90493449CD81B6DBBB2E6 /* NSThread+FDAdd.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		66E4620D25B1B3A0B6B8300D314BF38D /* UIApplication+FDAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 4292BC6BDDD03EA693A32C9BF6227E07 /* UIApplication+FDAdd.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		682A34DE7A94FBE3ABE637D97F0F1962 /* UIImageView+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A9BA8333C3726A7F7A981DE5D115F7E /* UIImageView+WebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -172,10 +174,8 @@
 		F9B4CDBB07D6EF633594041664D89444 /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C953BB1A8188BBC41716D5F8A6A9627 /* UIImage+MultiFormat.m */; };
 		FB8420AA65E4E9BE0B78A95C37D1761F /* FDLineHeightLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B20CC07C5600D6FF130B76D86C66E9 /* FDLineHeightLabel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FB929195AABECB8CACD3EADF8CE20718 /* UIApplication+FDAdd.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F8DE47B7499FBDE4F42FDC2B6EF86DD /* UIApplication+FDAdd.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FC5A811B0203CAAFDBA1F4291B826BBA /* FDDebugObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = BBAE4D92FDE025FF4A960B3FF86692D3 /* FDDebugObserver.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FD813A7AFF62573176AAE9D487041115 /* NSObject+FDAddForARC.h in Headers */ = {isa = PBXBuildFile; fileRef = 27922F9A73BF18368B082BCA16092241 /* NSObject+FDAddForARC.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FE1D3596AD3033CDBE3C8DC7745E5365 /* UIBezierPath+FDAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = C66EB24DD7BFDB20C33703EA4C107614 /* UIBezierPath+FDAdd.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		FE5D5FFF7B891B7FEBCFDD0809B50ED5 /* FDDebugObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = A2816524D957F635CAC889F2F18CE2F3 /* FDDebugObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FEFDD640B6213C161D237688F7E3A2CA /* UIImage+FDAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CC63D977BCA665540F6F88EA668D3F88 /* UIImage+FDAdd.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
@@ -234,7 +234,7 @@
 		060AEDFD268A462C58C2AB0704627102 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		080D510651F2F857F5DAA14737A19EAD /* FMResultSet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = src/fmdb/FMResultSet.m; sourceTree = "<group>"; };
 		08286CCDE8CC0B8BFF62BCA9587C1000 /* UIGestureRecognizer+FDAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+FDAdd.h"; sourceTree = "<group>"; };
-		09F27FDC588B593B3ED3D1A8F6096379 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		09F27FDC588B593B3ED3D1A8F6096379 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		0AD079B1173F06C024E2E96F26FD4806 /* UIView+FDAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIView+FDAdd.h"; sourceTree = "<group>"; };
 		0D6C45204F1241A50081E1A104BFD0D3 /* SDWebImageDownloaderOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDownloaderOperation.m; path = SDWebImage/SDWebImageDownloaderOperation.m; sourceTree = "<group>"; };
 		10E7A3A17E7AC9B11095FECDB2ED9937 /* FDLineHeightLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FDLineHeightLabel.h; sourceTree = "<group>"; };
@@ -260,13 +260,13 @@
 		28AD32050F39C0B9B51B06F7A2457AEB /* SDWebImageGIFCoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageGIFCoder.h; path = SDWebImage/SDWebImageGIFCoder.h; sourceTree = "<group>"; };
 		2B298EBD7250EFB67875D83A9E632B83 /* SDWebImageGIFCoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageGIFCoder.m; path = SDWebImage/SDWebImageGIFCoder.m; sourceTree = "<group>"; };
 		2C4944CC5717965D1E3C8364A855EA98 /* FDChangeLoctionUtil.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FDChangeLoctionUtil.m; sourceTree = "<group>"; };
-		2C882C7E51D74DD1FD74D7C3A849B064 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		2C882C7E51D74DD1FD74D7C3A849B064 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2F2E23E898A60B05610959D6E839462B /* FMDB-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FMDB-dummy.m"; sourceTree = "<group>"; };
 		30E6FB85880C6A44FB154A2F35A6CCEC /* Pods-FDKit_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FDKit_Example-dummy.m"; sourceTree = "<group>"; };
 		32E3EF488732993B9257902EDE54B6F9 /* UIScrollView+FDAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+FDAdd.h"; sourceTree = "<group>"; };
 		33020348D92FDA84829A7BF2A1501B93 /* NSArray+FDAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSArray+FDAdd.h"; sourceTree = "<group>"; };
 		3631912C84EA54F42841AF2C49513235 /* SDWebImageTransition.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageTransition.m; path = SDWebImage/SDWebImageTransition.m; sourceTree = "<group>"; };
-		370553A2DA0BE75269ECEC174E54E2FE /* Pods_FDKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FDKit_Tests.framework; path = "Pods-FDKit_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		370553A2DA0BE75269ECEC174E54E2FE /* Pods_FDKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FDKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3709C15458C825996F31D48C5BF0D8EB /* Pods-FDKit_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FDKit_Tests-umbrella.h"; sourceTree = "<group>"; };
 		37DB55F543BBBF5AB52F99D70F7C2550 /* SDAnimatedImageRep.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDAnimatedImageRep.h; path = SDWebImage/SDAnimatedImageRep.h; sourceTree = "<group>"; };
 		381C1EF9231A7F434A0F1E0B517408BC /* UIControl+FDAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIControl+FDAdd.h"; sourceTree = "<group>"; };
@@ -293,16 +293,16 @@
 		4EDE1E2EAE598A912FB69448376989E2 /* NSDictionary+FDAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+FDAdd.h"; sourceTree = "<group>"; };
 		50B90E18B1D122CB55534E7F76BA7CC5 /* SDWebImageCoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageCoder.m; path = SDWebImage/SDWebImageCoder.m; sourceTree = "<group>"; };
 		51B122575E7D8028364BA803107E4924 /* NSDate+FDAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDate+FDAdd.h"; sourceTree = "<group>"; };
-		54BFD9043E6DD539DE8DF3FA61026A98 /* FDKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FDKit.framework; path = FDKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		54BFD9043E6DD539DE8DF3FA61026A98 /* FDKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FDKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55B8748AD14BD7157FA16D1D065D8F1C /* SDImageCacheConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageCacheConfig.m; path = SDWebImage/SDImageCacheConfig.m; sourceTree = "<group>"; };
 		5698B7BA2E46BDF5737B5A3A8FE8F83E /* UITextField+FDAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UITextField+FDAdd.m"; sourceTree = "<group>"; };
 		56EC675798B76B9F1F1079966FF95AB2 /* NSObject+FDAddForKVO.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSObject+FDAddForKVO.m"; sourceTree = "<group>"; };
 		583B08508641D9E78E5A43DF233F7614 /* NSKeyedUnarchiver+FDAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSKeyedUnarchiver+FDAdd.m"; sourceTree = "<group>"; };
 		585A4470312117FE9B3BD1EBE0DA0A5D /* FMDB.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FMDB.modulemap; sourceTree = "<group>"; };
 		5AC848BAD316F7C57010A9C4FBC4A324 /* FMDB-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FMDB-umbrella.h"; sourceTree = "<group>"; };
-		5B8DFA763DF6EC444E546C363C112912 /* Pods_FDKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FDKit_Example.framework; path = "Pods-FDKit_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B8DFA763DF6EC444E546C363C112912 /* Pods_FDKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FDKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C0DA42C59488B722A31ABA4E60B6882 /* UIView+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+WebCache.m"; path = "SDWebImage/UIView+WebCache.m"; sourceTree = "<group>"; };
-		5CDAA28F8FE1771CA16E5C9F4848E7EF /* FDKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = FDKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		5CDAA28F8FE1771CA16E5C9F4848E7EF /* FDKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = FDKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		5D560C665CD88AAFCFD6525051F9E1CA /* UIGestureRecognizer+FDAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIGestureRecognizer+FDAdd.m"; sourceTree = "<group>"; };
 		5D9CBC50EB11F2363E96894147D0EA92 /* UIScrollView+FDAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+FDAdd.m"; sourceTree = "<group>"; };
 		5F1896766C9C3C1FA54061DDA00B7D45 /* FDCGUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FDCGUtilities.m; sourceTree = "<group>"; };
@@ -312,7 +312,7 @@
 		65CDA9AD8EC61267E32C4C3BF33C7E4C /* FDKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FDKit-umbrella.h"; sourceTree = "<group>"; };
 		662A027007D70DB5F56FCD74C1EE97BF /* FDTableViewCellProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FDTableViewCellProtocol.h; sourceTree = "<group>"; };
 		66EB4117C639E75BCA63A980A0A7146B /* FDChangeLoctionUtil.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FDChangeLoctionUtil.h; sourceTree = "<group>"; };
-		6A99A2FBC9DBDFC5B467F03BF5D08045 /* FMDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FMDB.framework; path = FMDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A99A2FBC9DBDFC5B467F03BF5D08045 /* FMDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FMDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BB68CC365E50EBA8A7C7E8BD0139D7A /* NSThread+FDAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSThread+FDAdd.h"; sourceTree = "<group>"; };
 		6BF55A9F76BF3688B2EC0B85920FEEFF /* FMDB.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDB.h; path = src/fmdb/FMDB.h; sourceTree = "<group>"; };
 		6C028038922D060E7B56B5EDC1D3AEE3 /* SDWebImageOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageOperation.h; path = SDWebImage/SDWebImageOperation.h; sourceTree = "<group>"; };
@@ -337,14 +337,14 @@
 		8CB8081319F9084D15A39A2A97AA3E23 /* FDLeftAlignedFlowLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FDLeftAlignedFlowLayout.h; sourceTree = "<group>"; };
 		8F5137391D866600D78DA9C14D47651C /* FDWebImagePrefetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FDWebImagePrefetcher.m; sourceTree = "<group>"; };
 		919A119FBEB71A4A0E402C9EA2320D38 /* NSDate+FDAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSDate+FDAdd.m"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		93A5948F945A98FD510C26B7DB2DD8AD /* NSImage+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSImage+WebCache.h"; path = "SDWebImage/NSImage+WebCache.h"; sourceTree = "<group>"; };
 		96E5E2EB17ED3CF014E3F6BEF713C187 /* NSString+FDAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+FDAdd.h"; sourceTree = "<group>"; };
 		983936AFCADBFDE2BBF0D1E42F4F3CB6 /* SDWebImageTransition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageTransition.h; path = SDWebImage/SDWebImageTransition.h; sourceTree = "<group>"; };
 		99B22D79A37A88A61DD6F9792DB155BB /* SDWebImage.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SDWebImage.modulemap; sourceTree = "<group>"; };
 		9A1576CDD9A95976F10170C825DDCF62 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+WebCacheOperation.m"; path = "SDWebImage/UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		9B43F66EE06EE944676233D8035BF568 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		9BCD86C980DD0CDAC87E426CE0A3300B /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SDWebImage.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BCD86C980DD0CDAC87E426CE0A3300B /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DAF89726DCC35E58D0380F926C81D88 /* NSImage+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSImage+WebCache.m"; path = "SDWebImage/NSImage+WebCache.m"; sourceTree = "<group>"; };
 		9E182F0BF597F2E8F0C9301E075CE652 /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EA7B9FA5E97515B083C3689D38645C5 /* FMDatabasePool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabasePool.h; path = src/fmdb/FMDatabasePool.h; sourceTree = "<group>"; };
@@ -684,7 +684,6 @@
 				CA94CB74337061B55A48B0DB145BEAD0 /* NSTimer+FDAdd.h */,
 				398DDA6F51DEBC6677BBD884E6056A99 /* NSTimer+FDAdd.m */,
 			);
-			name = Foundation;
 			path = Foundation;
 			sourceTree = "<group>";
 		};
@@ -694,7 +693,6 @@
 				BC8307240C33DAB5192031D004A8D53B /* Core */,
 				2EA0599FC6B26ECE9BCC1252CF19859B /* Support Files */,
 			);
-			name = SDWebImage;
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
@@ -713,7 +711,6 @@
 				51921713BD829E80E110A06AE1402291 /* standard */,
 				C0BD458301DCD70B26BDBAD5D501DA26 /* Support Files */,
 			);
-			name = FMDB;
 			path = FMDB;
 			sourceTree = "<group>";
 		};
@@ -765,7 +762,6 @@
 				19F45F274E3C1A63EA13CE2B931ABFC8 /* UIViewController+FDAdd.h */,
 				7B1CA6DE2A9FAD4C3D42520C035CA142 /* UIViewController+FDAdd.m */,
 			);
-			name = UIKit;
 			path = UIKit;
 			sourceTree = "<group>";
 		};
@@ -902,7 +898,6 @@
 				008000A7634B8235E21A4D7F34DB1FED /* FDCGUtilities.h */,
 				5F1896766C9C3C1FA54061DDA00B7D45 /* FDCGUtilities.m */,
 			);
-			name = Quartz;
 			path = Quartz;
 			sourceTree = "<group>";
 		};
@@ -986,8 +981,7 @@
 				2A9980DB1DC07536E90CDB56842DB526 /* FDChangeLoctionUtil.h in Headers */,
 				F871ADEA68296E32F0B664886BCFE090 /* FDCollectionViewCellProtocol.h in Headers */,
 				B99E2D05BCA2444D9B5A3153739CF134 /* FDDataViewProtocol.h in Headers */,
-				FE5D5FFF7B891B7FEBCFDD0809B50ED5 /* FDDebugObserver.h in Headers */,
-				FE5D5FFF7B891B7FEBCFDD0809B50ED5 /* FDDebugObserver.h in Headers */,
+				6373784721B00EB3000832E2 /* FDDebugObserver.h in Headers */,
 				3791AA2B3974DED889F977F21F41A6FD /* FDFontStateButton.h in Headers */,
 				D8113A75F4D579B4AFB2E715DE883FB7 /* FDGuideView.h in Headers */,
 				A4B3FBC59C73E6AF5CE1CC8341854687 /* FDKit-umbrella.h in Headers */,
@@ -1130,7 +1124,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1000;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1226,8 +1220,7 @@
 				84DD87649CD10779BFB4ACC95EB56ECF /* FDBaseTableViewDelegate.m in Sources */,
 				BBB18652EB58B1FCC2EF032205BE303B /* FDCGUtilities.m in Sources */,
 				ACF9A11FDB611058E5371A51EECCE0E2 /* FDChangeLoctionUtil.m in Sources */,
-				FC5A811B0203CAAFDBA1F4291B826BBA /* FDDebugObserver.m in Sources */,
-				FC5A811B0203CAAFDBA1F4291B826BBA /* FDDebugObserver.m in Sources */,
+				6373784621B00EB3000832E2 /* FDDebugObserver.m in Sources */,
 				359F564A443EF3159BB00DF8775569DB /* FDFontStateButton.m in Sources */,
 				E3401E69A236F8759D0C1EB751235AF6 /* FDGuideView.m in Sources */,
 				4F53AA4D3FEDF9BBC2548B587F9E3005 /* FDKit-dummy.m in Sources */,

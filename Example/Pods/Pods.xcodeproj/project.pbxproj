@@ -75,6 +75,8 @@
 		61F83B6FA6A0BF903E2DC7A1807D2361 /* UIViewController+FDAdd.h in Headers */ = {isa = PBXBuildFile; fileRef = 19F45F274E3C1A63EA13CE2B931ABFC8 /* UIViewController+FDAdd.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6373784621B00EB3000832E2 /* FDDebugObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = BBAE4D92FDE025FF4A960B3FF86692D3 /* FDDebugObserver.m */; };
 		6373784721B00EB3000832E2 /* FDDebugObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = A2816524D957F635CAC889F2F18CE2F3 /* FDDebugObserver.h */; };
+		63AF6A7C21B106E600E45223 /* FDFMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 63AF6A7A21B106E600E45223 /* FDFMDB.h */; };
+		63AF6A7D21B106E600E45223 /* FDFMDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 63AF6A7B21B106E600E45223 /* FDFMDB.m */; };
 		6407D9B5958ED55DDDE81217BD14D1EE /* NSThread+FDAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = D1396E58D2B90493449CD81B6DBBB2E6 /* NSThread+FDAdd.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		66E4620D25B1B3A0B6B8300D314BF38D /* UIApplication+FDAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 4292BC6BDDD03EA693A32C9BF6227E07 /* UIApplication+FDAdd.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		682A34DE7A94FBE3ABE637D97F0F1962 /* UIImageView+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A9BA8333C3726A7F7A981DE5D115F7E /* UIImageView+WebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -308,6 +310,8 @@
 		5F1896766C9C3C1FA54061DDA00B7D45 /* FDCGUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FDCGUtilities.m; sourceTree = "<group>"; };
 		5F6C4932B0EAD7F3D547EF960B1B9201 /* FDCategoriesMacro.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FDCategoriesMacro.h; sourceTree = "<group>"; };
 		6381857A8425890B05DBD6B2DA10FF4F /* UIImage+FDAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIImage+FDAdd.h"; sourceTree = "<group>"; };
+		63AF6A7A21B106E600E45223 /* FDFMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDFMDB.h; sourceTree = "<group>"; };
+		63AF6A7B21B106E600E45223 /* FDFMDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDFMDB.m; sourceTree = "<group>"; };
 		65B9BAD196F7483205762AD80ABE1DB6 /* SDWebImageCoderHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageCoderHelper.m; path = SDWebImage/SDWebImageCoderHelper.m; sourceTree = "<group>"; };
 		65CDA9AD8EC61267E32C4C3BF33C7E4C /* FDKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FDKit-umbrella.h"; sourceTree = "<group>"; };
 		662A027007D70DB5F56FCD74C1EE97BF /* FDTableViewCellProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FDTableViewCellProtocol.h; sourceTree = "<group>"; };
@@ -508,6 +512,8 @@
 				477D8612333B6F6341EA33A381B594E0 /* FDSKUDataFilter.m */,
 				1A7AC8C1087FB0EF4E49121C97D394C5 /* FDWebImagePrefetcher.h */,
 				8F5137391D866600D78DA9C14D47651C /* FDWebImagePrefetcher.m */,
+				63AF6A7A21B106E600E45223 /* FDFMDB.h */,
+				63AF6A7B21B106E600E45223 /* FDFMDB.m */,
 			);
 			name = Utility;
 			path = FDKit/Classes/Utility;
@@ -982,6 +988,7 @@
 				F871ADEA68296E32F0B664886BCFE090 /* FDCollectionViewCellProtocol.h in Headers */,
 				B99E2D05BCA2444D9B5A3153739CF134 /* FDDataViewProtocol.h in Headers */,
 				6373784721B00EB3000832E2 /* FDDebugObserver.h in Headers */,
+				63AF6A7C21B106E600E45223 /* FDFMDB.h in Headers */,
 				3791AA2B3974DED889F977F21F41A6FD /* FDFontStateButton.h in Headers */,
 				D8113A75F4D579B4AFB2E715DE883FB7 /* FDGuideView.h in Headers */,
 				A4B3FBC59C73E6AF5CE1CC8341854687 /* FDKit-umbrella.h in Headers */,
@@ -1222,6 +1229,7 @@
 				ACF9A11FDB611058E5371A51EECCE0E2 /* FDChangeLoctionUtil.m in Sources */,
 				6373784621B00EB3000832E2 /* FDDebugObserver.m in Sources */,
 				359F564A443EF3159BB00DF8775569DB /* FDFontStateButton.m in Sources */,
+				63AF6A7D21B106E600E45223 /* FDFMDB.m in Sources */,
 				E3401E69A236F8759D0C1EB751235AF6 /* FDGuideView.m in Sources */,
 				4F53AA4D3FEDF9BBC2548B587F9E3005 /* FDKit-dummy.m in Sources */,
 				ECE147ECA19ED0005E6C86428C1FA6A8 /* FDLeftAlignedFlowLayout.m in Sources */,

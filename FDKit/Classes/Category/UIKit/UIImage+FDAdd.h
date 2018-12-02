@@ -12,6 +12,27 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
+/**
+ *  渐变方向枚举
+ */
+typedef NS_ENUM(NSInteger,FDGradientDirectionType) {
+    /**
+     *  从上到下
+     */
+    FDGradientDirectionTypeTopToBottom = 0,
+    /**
+     *  从左到右
+     */
+    FDGradientDirectionTypeLeftToRight = 1,
+    /**
+     *  左上到右下
+     */
+    FDGradientDirectionTypeTopLeftToDownRight = 2,
+    /**
+     *  右上到左下
+     */
+    FDGradientDirectionTypeTopRightToDownLeft = 3,
+};
 
 /**
  Provide some commen method for `UIImage`.
@@ -137,6 +158,34 @@ NS_ASSUME_NONNULL_BEGIN
  @return return value description
  */
 + (UIImage *)fd_imageWithContentsOfFileInBundle:(NSBundle *)bundle WithName:(NSString *)imageName;
+
+/**
+ *  generate a a rectangle UIImagea rectangle UIImage with gradient
+ sample: self.upLeftToLowRightImageView.image = [UIImage fd_rectangleGradientImageFromColor:[UIColor redColor] toColor:[UIColor yellowColor] gradientDirectionType:GradientDirectionTypeTopLeftToDownRight imageSize:self.upLeftToLowRightImageView.frame.size];
+ *
+ *  @param fromColor                color at the start Point
+ *  @param toColor                  color at the end Point
+ *  @param gradientDirectionType    gradient direction enum
+ *  @param imageSize                the size of generated image
+ *
+ *  @return a rectangle UIImagea rectangle UIImage with gradient
+ */
++ (UIImage *)fd_rectangleGradientImageFromColor:(UIColor *)fromColor toColor:(UIColor *)toColor gradientDirectionType:(FDGradientDirectionType)gradientDirectionType imageSize:(CGSize)imageSize;
+
+/**
+ *
+ Generate a complicated rectangle UIImagea rectangle UIImage with gradient
+ sample:
+ self.stepGradientImageImageView1.image = [UIImage fd_rectangleGradientImageWithColors:@[[UIColor redColor],[UIColor yellowColor],[UIColor purpleColor]] ranges:@[@(0),@(0.5),@(1)] gradientDirectionType:GradientDirectionTypeLeftToRight imageSize:self.stepGradientImageImageView1.frame.size];
+ *
+ *  @param colors                colors array which contains two objects at least. sample： @[[UIColor redColor],[UIColor redColor],[UIColor greenColor]]
+ *  @param ranges                ranges array whick contains NSNumber sample:@[@(0),@(0.2),@(1)]
+ *  @param gradientDirectionType gradient direction enum(only support GradientDirectionTypeTopToBottom and  GradientDirectionTypeLeftToRight )
+ *  @param imageSize             the size of generated image
+ *
+ *  @return a rectangle UIImagea rectangle UIImage with gradient
+ */
++ (UIImage *)fd_rectangleGradientImageWithColors:(NSArray*)colors ranges:(NSArray *)ranges gradientDirectionType:(FDGradientDirectionType)gradientDirectionType imageSize:(CGSize)imageSize;
 
 #pragma mark - Image Info
 ///=============================================================================

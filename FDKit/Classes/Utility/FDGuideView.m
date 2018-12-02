@@ -95,7 +95,7 @@ static NSString *keyOfGuideHasShown = @"BPWGuideHasShownKey";
     if (_bgView == nil) {
         _bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
 //        _bgView.backgroundColor = [UIColor BPT_colorWithHexString:@"#000000" withAlpha:0.8f];
-        _bgView.backgroundColor = FDColorHex(#000000CC);
+        _bgView.backgroundColor = FDColorHex(000000CC);
     }
     return _bgView;
 }

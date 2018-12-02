@@ -102,7 +102,7 @@ static const NSInteger kDefaultCacheMaxCacheSize = 5 * 1024 * 1024;
 - (SDWebImagePrefetcher *)webImagePrefetcher {
     if (!_webImagePrefetcher) {
         _webImagePrefetcher = [[SDWebImagePrefetcher alloc] initWithImageManager:self.webImageManager];
-        _webImagePrefetcher.prefetcherQueue = dispatch_queue_create("FDWebImagePrefetcher.bitauto.application", DISPATCH_QUEUE_SERIAL);
+        _webImagePrefetcher.prefetcherQueue = dispatch_queue_create("FDWebImagePrefetcher.fatdragon.application", DISPATCH_QUEUE_SERIAL);
         _webImagePrefetcher.options = SDWebImageRetryFailed | SDWebImageRefreshCached;
     }
     return _webImagePrefetcher;

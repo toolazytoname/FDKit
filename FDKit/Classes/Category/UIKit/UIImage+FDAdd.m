@@ -283,6 +283,105 @@ static NSTimeInterval _yy_CGImageSourceGetGIFFrameDelayAtIndex(CGImageSourceRef 
     return image;
 }
 
++ (UIImage *)fd_rectangleGradientImageFromColor:(UIColor *)fromColor toColor:(UIColor *)toColor gradientDirectionType:(FDGradientDirectionType)gradientDirectionType imageSize:(CGSize)imageSize {
+    if (!fromColor || !toColor) {
+        return nil;
+    }
+    UIGraphicsBeginImageContextWithOptions(imageSize, YES, 1);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSaveGState(context);
+    
+    CGRect frame = CGRectMake(0.0f, 0.0f, imageSize.width, imageSize.height);
+    [[self class] drawLinearGradientFromColor:fromColor toColor:toColor gradientType:gradientDirectionType frame:frame context:context];
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    CGContextRestoreGState(context);
+    UIGraphicsEndImageContext();
+    return image;
+}
+
++ (UIImage *)fd_rectangleGradientImageWithColors:(NSArray*)colors ranges:(NSArray *)ranges gradientDirectionType:(FDGradientDirectionType)gradientDirectionType imageSize:(CGSize)imageSize {
+    if (colors.count < 2) {
+        return nil;
+    }
+    //this two directions are not implemented
+    if (FDGradientDirectionTypeTopLeftToDownRight == gradientDirectionType || FDGradientDirectionTypeTopRightToDownLeft == gradientDirectionType) {
+        return nil;
+    }
+    UIGraphicsBeginImageContextWithOptions(imageSize, YES, 1);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSaveGState(context);
+    //draw step by step with two colors
+    for (NSInteger i = 0; i+1 < colors.count; i++) {
+        UIColor *fromColor = colors[i];
+        UIColor *toColor = colors[i + 1];
+        CGFloat startPoint = [ranges[i] floatValue];
+        CGFloat endPoint = [ranges[i+1] floatValue];
+        CGFloat width = imageSize.width;
+        CGFloat height = imageSize.height;
+        CGRect frame = CGRectZero;
+        switch (gradientDirectionType) {
+            case FDGradientDirectionTypeTopToBottom:
+                frame = CGRectMake(0.0f, height*startPoint, width, height*(endPoint - startPoint));
+                break;
+            case FDGradientDirectionTypeLeftToRight:
+                frame = CGRectMake(width * startPoint, 0.0f, width*(endPoint - startPoint), height);
+                break;
+            default:
+                break;
+        }
+        [[self class] fd_drawLinearGradientFromColor:fromColor toColor:toColor gradientType:gradientDirectionType frame:frame context:context];
+    }
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    CGContextRestoreGState(context);
+    UIGraphicsEndImageContext();
+    return image;
+}
+
++ (void)fd_drawLinearGradientFromColor:(UIColor *)fromColor toColor:(UIColor *)toColor gradientType:(FDGradientDirectionType)gradientType frame:(CGRect)frame context:(CGContextRef)context {
+    if (!fromColor || !toColor) {
+        return;
+    }
+    NSArray *colors = @[(id)fromColor.CGColor,(id)toColor.CGColor];
+    CGColorSpaceRef colorSpace = CGColorGetColorSpace(toColor.CGColor);
+    CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (CFArrayRef)colors, NULL);
+    CGPoint start = CGPointZero;
+    CGPoint end = CGPointZero;
+    switch (gradientType) {
+        case FDGradientDirectionTypeTopToBottom:
+            //top left
+            start = frame.origin;
+            //down left
+            end = CGPointMake(frame.origin.x,CGRectGetMaxY(frame));
+            break;
+        case FDGradientDirectionTypeLeftToRight:
+            //top left
+            start = frame.origin;
+            //top right
+            end = CGPointMake(CGRectGetMaxX(frame), frame.origin.y);
+            break;
+        case FDGradientDirectionTypeTopLeftToDownRight:
+            //top left
+            start = frame.origin;
+            //down right
+            end = CGPointMake(CGRectGetMaxX(frame),CGRectGetMaxY(frame));
+            break;
+        case FDGradientDirectionTypeTopRightToDownLeft:
+            //top right
+            start = CGPointMake(CGRectGetMaxX(frame), frame.origin.y);
+            //down left
+            end = CGPointMake(frame.origin.x,CGRectGetMaxY(frame));
+            break;
+        default:
+            break;
+    }
+    //pay attention to this parameter when you painting step by step(CGGradientDrawingOptions options) kCGGradientDrawsBeforeStartLocation| kCGGradientDrawsAfterEndLocation
+    CGContextDrawLinearGradient(context, gradient, start, end, 0);
+    CGGradientRelease(gradient);
+    //    CGColorSpaceRelease(colorSpace);
+}
+
+
 - (BOOL)fd_hasAlphaChannel {
     if (self.CGImage == NULL) return NO;
     CGImageAlphaInfo alpha = CGImageGetAlphaInfo(self.CGImage) & kCGBitmapAlphaInfoMask;

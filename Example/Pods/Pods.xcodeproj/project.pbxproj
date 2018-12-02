@@ -52,6 +52,8 @@
 		3E7338A7B9C8A56A82C8B29277314765 /* FMDB-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5AC848BAD316F7C57010A9C4FBC4A324 /* FMDB-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3FD11955C5C4AB9B8FE3140F0BC2DD3E /* NSBundle+FDAdd.h in Headers */ = {isa = PBXBuildFile; fileRef = F9BAB050B3B838736B54F3950EECC449 /* NSBundle+FDAdd.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		405DBAEE5A8896706E5D6F938EEBF3B5 /* UIBarButtonItem+FDAdd.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DFB78A526A13D09E83EBF04DD58F77F /* UIBarButtonItem+FDAdd.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4471B46021B3CF510054E428 /* FDUnhighlightedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4471B45E21B3CF510054E428 /* FDUnhighlightedButton.m */; };
+		4471B46121B3CF510054E428 /* FDUnhighlightedButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 4471B45F21B3CF510054E428 /* FDUnhighlightedButton.h */; };
 		4473837C3B572145ED91B5E9D6BD6097 /* NSNotificationCenter+FDAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = A87F1718AAD44965FB56850B2CADF58E /* NSNotificationCenter+FDAdd.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		44C0AA218E5B3EF64D7879630E089536 /* UIControl+FDAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C51F8E4B7B96E97EFCDBCE96F52D5BE /* UIControl+FDAdd.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		44CD1F95A2A4A54D9A0ED409C93FB3E0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B43F66EE06EE944676233D8035BF568 /* Foundation.framework */; };
@@ -282,6 +284,8 @@
 		3FFC13E20EBDEAF6FD5783BE2FD0B737 /* FMDatabase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = src/fmdb/FMDatabase.m; sourceTree = "<group>"; };
 		41550ECCB5D9ED49A76A5DE80BAF3677 /* UITextField+FDAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UITextField+FDAdd.h"; sourceTree = "<group>"; };
 		4292BC6BDDD03EA693A32C9BF6227E07 /* UIApplication+FDAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+FDAdd.m"; sourceTree = "<group>"; };
+		4471B45E21B3CF510054E428 /* FDUnhighlightedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDUnhighlightedButton.m; sourceTree = "<group>"; };
+		4471B45F21B3CF510054E428 /* FDUnhighlightedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDUnhighlightedButton.h; sourceTree = "<group>"; };
 		46857CA5C7BD804D1D26F30E05967629 /* FDDebugObserver.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FDDebugObserver.m; sourceTree = "<group>"; };
 		4719663C57BD6FB0B91DB6EA21B65F3A /* SDImageCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCache.h; path = SDWebImage/SDImageCache.h; sourceTree = "<group>"; };
 		477D8612333B6F6341EA33A381B594E0 /* FDSKUDataFilter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FDSKUDataFilter.m; sourceTree = "<group>"; };
@@ -638,6 +642,8 @@
 				2276ABC3FEB935039C1F74F435C58BAC /* FDFontStateButton.m */,
 				10E7A3A17E7AC9B11095FECDB2ED9937 /* FDLineHeightLabel.h */,
 				B4B20CC07C5600D6FF130B76D86C66E9 /* FDLineHeightLabel.m */,
+				4471B45F21B3CF510054E428 /* FDUnhighlightedButton.h */,
+				4471B45E21B3CF510054E428 /* FDUnhighlightedButton.m */,
 			);
 			name = CustomUI;
 			path = FDKit/Classes/CustomUI;
@@ -1019,6 +1025,7 @@
 				CE04048D1710EFE8571ACD1143B6330F /* UIControl+FDAdd.h in Headers */,
 				B19B38B2AFAA40C30A2FA9F7D66C60EC /* UIDevice+FDAdd.h in Headers */,
 				4B90F0649C2AF6E7EABF6C11FD416D4A /* UIFont+FDAdd.h in Headers */,
+				4471B46121B3CF510054E428 /* FDUnhighlightedButton.h in Headers */,
 				F3599B3470837C773CED4E4A2011A55E /* UIGestureRecognizer+FDAdd.h in Headers */,
 				B2A1E0218F7C1B18CE762C5C966C6902 /* UIImage+FDAdd.h in Headers */,
 				4D7FDC0295DFE3C00ABFCB88C3E697BD /* UIScreen+FDAdd.h in Headers */,
@@ -1262,6 +1269,7 @@
 				FEFDD640B6213C161D237688F7E3A2CA /* UIImage+FDAdd.m in Sources */,
 				CD6EF2581C8EE8C8398BE8D9E03B13C7 /* UIScreen+FDAdd.m in Sources */,
 				4508C94BBB1FC7FCEC35CE3E967C4F44 /* UIScrollView+FDAdd.m in Sources */,
+				4471B46021B3CF510054E428 /* FDUnhighlightedButton.m in Sources */,
 				9CB742ED560CC87AD002A3B5EDD613E0 /* UITableView+FDAdd.m in Sources */,
 				4C6D4BB4F3BD20CB2D7AF222AB04902E /* UITextField+FDAdd.m in Sources */,
 				AB981C9AE6832C8048CD415184024BB5 /* UIView+FDAdd.m in Sources */,

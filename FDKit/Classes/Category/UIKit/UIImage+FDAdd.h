@@ -187,6 +187,19 @@ typedef NS_ENUM(NSInteger,FDGradientDirectionType) {
  */
 + (UIImage *)fd_rectangleGradientImageWithColors:(NSArray*)colors ranges:(NSArray *)ranges gradientDirectionType:(FDGradientDirectionType)gradientDirectionType imageSize:(CGSize)imageSize;
 
+/**
+ 根据Assets.xcassets里的plist文件来动态获取启动图.
+ 
+ @return  LaunchImage.
+ */
++ (UIImage *)fd_LaunchImage;
+
+/**
+ 根据Assets.xcassets里的plist文件来动态获取图标.
+ 
+ @return  LaunchImage.
+ */
++ (UIImage *)fd_appIcon;
 #pragma mark - Image Info
 ///=============================================================================
 /// @name Image Info

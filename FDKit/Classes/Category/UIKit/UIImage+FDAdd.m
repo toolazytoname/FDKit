@@ -338,6 +338,27 @@ static NSTimeInterval _yy_CGImageSourceGetGIFFrameDelayAtIndex(CGImageSourceRef 
     return image;
 }
 
++ (UIImage *)fd_LaunchImage{
+    CGSize viewSize = [UIScreen mainScreen].bounds.size;
+    NSString *orentation = @"Portrait";//垂直
+    NSString *launchImage = nil;
+    NSArray *launchImages =  [[[NSBundle mainBundle] infoDictionary] valueForKey:@"UILaunchImages"];
+    for (NSDictionary *dict in launchImages) {
+        CGSize imageSize = CGSizeFromString(dict[@"UILaunchImageSize"]);
+        if (CGSizeEqualToSize(viewSize, imageSize) && [orentation isEqualToString:dict[@"UILaunchImageOrientation"]]) {
+            launchImage = dict[@"UILaunchImageName"];
+        }
+    }
+    return [UIImage imageNamed:launchImage];
+}
+
++ (UIImage *)fd_appIcon{
+    NSDictionary *infoPlist = [[NSBundle mainBundle] infoDictionary];
+    NSString *icon = [[infoPlist valueForKeyPath:@"CFBundleIcons.CFBundlePrimaryIcon.CFBundleIconFiles"] lastObject];
+    UIImage* image = [UIImage imageNamed:icon];
+    return image;
+}
+
 + (void)fd_drawLinearGradientFromColor:(UIColor *)fromColor toColor:(UIColor *)toColor gradientType:(FDGradientDirectionType)gradientType frame:(CGRect)frame context:(CGContextRef)context {
     if (!fromColor || !toColor) {
         return;

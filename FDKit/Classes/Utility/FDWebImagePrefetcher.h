@@ -15,8 +15,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface FDWebImagePrefetcher : NSObject
 @property (nonatomic, assign) NSInteger cacheAge;
 @property (nonatomic, assign) NSInteger cacheSize;
-//自定义 url->key 算法
-@property (nonatomic, copy, nullable) SDWebImageCacheKeyFilterBlock cacheKeyFilter;
 - (instancetype)initWithCacheDirectory:(NSString *)cacheDirectory;
 //子线程执行，不会阻塞主线程
 - (void)prefetchURLs:(nullable NSArray<NSURL *> *)urls;

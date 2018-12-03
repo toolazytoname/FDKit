@@ -17,6 +17,8 @@ static const NSInteger kDefaultCacheMaxCacheSize = 5 * 1024 * 1024;
 @property (nonatomic, strong) SDWebImageManager *webImageManager;
 @property (nonatomic, strong) SDImageCache *imageCache;
 @property (nonatomic, copy) NSString *cacheDirectory;
+//自定义 url->key 算法
+@property (nonatomic, copy, nullable) SDWebImageCacheKeyFilterBlock cacheKeyFilter;
 @end
 
 @implementation FDWebImagePrefetcher

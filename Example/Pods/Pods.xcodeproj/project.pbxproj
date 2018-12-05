@@ -54,6 +54,15 @@
 		405DBAEE5A8896706E5D6F938EEBF3B5 /* UIBarButtonItem+FDAdd.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DFB78A526A13D09E83EBF04DD58F77F /* UIBarButtonItem+FDAdd.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4471B46021B3CF510054E428 /* FDUnhighlightedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4471B45E21B3CF510054E428 /* FDUnhighlightedButton.m */; };
 		4471B46121B3CF510054E428 /* FDUnhighlightedButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 4471B45F21B3CF510054E428 /* FDUnhighlightedButton.h */; };
+		4471B47321B819D90054E428 /* PerformanceMonitor.h in Headers */ = {isa = PBXBuildFile; fileRef = 4471B46621B819D80054E428 /* PerformanceMonitor.h */; };
+		4471B47421B819D90054E428 /* FDCAntiDebug.h in Headers */ = {isa = PBXBuildFile; fileRef = 4471B46721B819D80054E428 /* FDCAntiDebug.h */; };
+		4471B47521B819D90054E428 /* GYBootingProtection.h in Headers */ = {isa = PBXBuildFile; fileRef = 4471B46921B819D80054E428 /* GYBootingProtection.h */; };
+		4471B47621B819D90054E428 /* AppDelegate+GYBootingProtection.h in Headers */ = {isa = PBXBuildFile; fileRef = 4471B46A21B819D80054E428 /* AppDelegate+GYBootingProtection.h */; };
+		4471B47721B819D90054E428 /* GYBootingProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4471B46B21B819D80054E428 /* GYBootingProtection.m */; };
+		4471B47821B819D90054E428 /* AppDelegate+GYBootingProtection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4471B46C21B819D80054E428 /* AppDelegate+GYBootingProtection.m */; };
+		4471B47921B819D90054E428 /* PerformanceMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4471B46D21B819D80054E428 /* PerformanceMonitor.m */; };
+		4471B47A21B819D90054E428 /* FDCAntiDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = 4471B46E21B819D80054E428 /* FDCAntiDebug.m */; };
+		4471B47B21B819D90054E428 /* codeObfuscation.h in Headers */ = {isa = PBXBuildFile; fileRef = 4471B47021B819D90054E428 /* codeObfuscation.h */; };
 		4473837C3B572145ED91B5E9D6BD6097 /* NSNotificationCenter+FDAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = A87F1718AAD44965FB56850B2CADF58E /* NSNotificationCenter+FDAdd.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		44C0AA218E5B3EF64D7879630E089536 /* UIControl+FDAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C51F8E4B7B96E97EFCDBCE96F52D5BE /* UIControl+FDAdd.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		44CD1F95A2A4A54D9A0ED409C93FB3E0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B43F66EE06EE944676233D8035BF568 /* Foundation.framework */; };
@@ -286,6 +295,17 @@
 		4292BC6BDDD03EA693A32C9BF6227E07 /* UIApplication+FDAdd.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+FDAdd.m"; sourceTree = "<group>"; };
 		4471B45E21B3CF510054E428 /* FDUnhighlightedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDUnhighlightedButton.m; sourceTree = "<group>"; };
 		4471B45F21B3CF510054E428 /* FDUnhighlightedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDUnhighlightedButton.h; sourceTree = "<group>"; };
+		4471B46621B819D80054E428 /* PerformanceMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerformanceMonitor.h; sourceTree = "<group>"; };
+		4471B46721B819D80054E428 /* FDCAntiDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDCAntiDebug.h; sourceTree = "<group>"; };
+		4471B46921B819D80054E428 /* GYBootingProtection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYBootingProtection.h; sourceTree = "<group>"; };
+		4471B46A21B819D80054E428 /* AppDelegate+GYBootingProtection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+GYBootingProtection.h"; sourceTree = "<group>"; };
+		4471B46B21B819D80054E428 /* GYBootingProtection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GYBootingProtection.m; sourceTree = "<group>"; };
+		4471B46C21B819D80054E428 /* AppDelegate+GYBootingProtection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+GYBootingProtection.m"; sourceTree = "<group>"; };
+		4471B46D21B819D80054E428 /* PerformanceMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerformanceMonitor.m; sourceTree = "<group>"; };
+		4471B46E21B819D80054E428 /* FDCAntiDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDCAntiDebug.m; sourceTree = "<group>"; };
+		4471B47021B819D90054E428 /* codeObfuscation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = codeObfuscation.h; sourceTree = "<group>"; };
+		4471B47121B819D90054E428 /* confuse.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = confuse.sh; sourceTree = "<group>"; };
+		4471B47221B819D90054E428 /* func.list */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = func.list; sourceTree = "<group>"; };
 		46857CA5C7BD804D1D26F30E05967629 /* FDDebugObserver.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FDDebugObserver.m; sourceTree = "<group>"; };
 		4719663C57BD6FB0B91DB6EA21B65F3A /* SDImageCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCache.h; path = SDWebImage/SDImageCache.h; sourceTree = "<group>"; };
 		477D8612333B6F6341EA33A381B594E0 /* FDSKUDataFilter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = FDSKUDataFilter.m; sourceTree = "<group>"; };
@@ -504,6 +524,12 @@
 		1B250EC06D5C13B9167860B093B1C606 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				4471B46F21B819D90054E428 /* Confuse */,
+				4471B46721B819D80054E428 /* FDCAntiDebug.h */,
+				4471B46E21B819D80054E428 /* FDCAntiDebug.m */,
+				4471B46821B819D80054E428 /* GYBootingProtection */,
+				4471B46621B819D80054E428 /* PerformanceMonitor.h */,
+				4471B46D21B819D80054E428 /* PerformanceMonitor.m */,
 				66EB4117C639E75BCA63A980A0A7146B /* FDChangeLoctionUtil.h */,
 				2C4944CC5717965D1E3C8364A855EA98 /* FDChangeLoctionUtil.m */,
 				A2816524D957F635CAC889F2F18CE2F3 /* FDDebugObserver.h */,
@@ -600,6 +626,27 @@
 			);
 			name = "Pods-FDKit_Tests";
 			path = "Target Support Files/Pods-FDKit_Tests";
+			sourceTree = "<group>";
+		};
+		4471B46821B819D80054E428 /* GYBootingProtection */ = {
+			isa = PBXGroup;
+			children = (
+				4471B46921B819D80054E428 /* GYBootingProtection.h */,
+				4471B46A21B819D80054E428 /* AppDelegate+GYBootingProtection.h */,
+				4471B46B21B819D80054E428 /* GYBootingProtection.m */,
+				4471B46C21B819D80054E428 /* AppDelegate+GYBootingProtection.m */,
+			);
+			path = GYBootingProtection;
+			sourceTree = "<group>";
+		};
+		4471B46F21B819D90054E428 /* Confuse */ = {
+			isa = PBXGroup;
+			children = (
+				4471B47021B819D90054E428 /* codeObfuscation.h */,
+				4471B47121B819D90054E428 /* confuse.sh */,
+				4471B47221B819D90054E428 /* func.list */,
+			);
+			path = Confuse;
 			sourceTree = "<group>";
 		};
 		517C9A58B5C566118A594B8AF492EC23 /* Base */ = {
@@ -992,6 +1039,8 @@
 				C69FF216272E562BB763B58D193CB680 /* FDCGUtilities.h in Headers */,
 				2A9980DB1DC07536E90CDB56842DB526 /* FDChangeLoctionUtil.h in Headers */,
 				F871ADEA68296E32F0B664886BCFE090 /* FDCollectionViewCellProtocol.h in Headers */,
+				4471B47421B819D90054E428 /* FDCAntiDebug.h in Headers */,
+				4471B47521B819D90054E428 /* GYBootingProtection.h in Headers */,
 				B99E2D05BCA2444D9B5A3153739CF134 /* FDDataViewProtocol.h in Headers */,
 				6373784721B00EB3000832E2 /* FDDebugObserver.h in Headers */,
 				63AF6A7C21B106E600E45223 /* FDFMDB.h in Headers */,
@@ -1004,6 +1053,7 @@
 				80A9F603374FA7A04C1133190AA87766 /* FDTableViewCellProtocol.h in Headers */,
 				6AD71FDF37D2D5218B8F1FC2997EC938 /* FDWebImagePrefetcher.h in Headers */,
 				6CD20DAC797E3BA1EA195647CBF091E2 /* NSArray+FDAdd.h in Headers */,
+				4471B47621B819D90054E428 /* AppDelegate+GYBootingProtection.h in Headers */,
 				3FD11955C5C4AB9B8FE3140F0BC2DD3E /* NSBundle+FDAdd.h in Headers */,
 				B4DD17124160BD8BFC63CD333153FFFB /* NSData+FDAdd.h in Headers */,
 				B99C560118943BB938148BCAF2DDF5CD /* NSDate+FDAdd.h in Headers */,
@@ -1021,6 +1071,7 @@
 				405DBAEE5A8896706E5D6F938EEBF3B5 /* UIBarButtonItem+FDAdd.h in Headers */,
 				CBB9C21DC3979711413F5BEA0386CF11 /* UIBezierPath+FDAdd.h in Headers */,
 				B2DDFFFAE602341B4B958D2F0A6DD699 /* UIButton+FDAdd.h in Headers */,
+				4471B47321B819D90054E428 /* PerformanceMonitor.h in Headers */,
 				815864C9A5B5F6D17C0FA14F605C2B11 /* UIColor+FDAdd.h in Headers */,
 				CE04048D1710EFE8571ACD1143B6330F /* UIControl+FDAdd.h in Headers */,
 				B19B38B2AFAA40C30A2FA9F7D66C60EC /* UIDevice+FDAdd.h in Headers */,
@@ -1032,6 +1083,7 @@
 				BDBD67024B997DBCC3CD2B1B5745A502 /* UIScrollView+FDAdd.h in Headers */,
 				57B592052DD013ED464E06D7D0F26E0E /* UITableView+FDAdd.h in Headers */,
 				15C7F9B0B595536EF0DB1908512563AD /* UITextField+FDAdd.h in Headers */,
+				4471B47B21B819D90054E428 /* codeObfuscation.h in Headers */,
 				185FDE5DB4BC208D1AFD83F7B5567F17 /* UIView+FDAdd.h in Headers */,
 				61F83B6FA6A0BF903E2DC7A1807D2361 /* UIViewController+FDAdd.h in Headers */,
 			);
@@ -1235,9 +1287,11 @@
 				BBB18652EB58B1FCC2EF032205BE303B /* FDCGUtilities.m in Sources */,
 				ACF9A11FDB611058E5371A51EECCE0E2 /* FDChangeLoctionUtil.m in Sources */,
 				6373784621B00EB3000832E2 /* FDDebugObserver.m in Sources */,
+				4471B47A21B819D90054E428 /* FDCAntiDebug.m in Sources */,
 				359F564A443EF3159BB00DF8775569DB /* FDFontStateButton.m in Sources */,
 				63AF6A7D21B106E600E45223 /* FDFMDB.m in Sources */,
 				E3401E69A236F8759D0C1EB751235AF6 /* FDGuideView.m in Sources */,
+				4471B47921B819D90054E428 /* PerformanceMonitor.m in Sources */,
 				4F53AA4D3FEDF9BBC2548B587F9E3005 /* FDKit-dummy.m in Sources */,
 				ECE147ECA19ED0005E6C86428C1FA6A8 /* FDLeftAlignedFlowLayout.m in Sources */,
 				FB8420AA65E4E9BE0B78A95C37D1761F /* FDLineHeightLabel.m in Sources */,
@@ -1252,6 +1306,7 @@
 				4473837C3B572145ED91B5E9D6BD6097 /* NSNotificationCenter+FDAdd.m in Sources */,
 				211FC4EDA1F77493001946214705B373 /* NSNumber+FDAdd.m in Sources */,
 				EE8C6DC3A3ED7BC33A8CC5029B472800 /* NSObject+FDAdd.m in Sources */,
+				4471B47821B819D90054E428 /* AppDelegate+GYBootingProtection.m in Sources */,
 				3DB2A75F37BDF4495D3826AC76A33DC5 /* NSObject+FDAddForARC.m in Sources */,
 				CC598B4B56BE741E4C1B27BD2E7A5720 /* NSObject+FDAddForKVO.m in Sources */,
 				EC8407B50B26F45B2C0DA91024CE5FB8 /* NSString+FDAdd.m in Sources */,
@@ -1264,6 +1319,7 @@
 				EAFEF3B00BF47828A8BC457FECFE671F /* UIColor+FDAdd.m in Sources */,
 				44C0AA218E5B3EF64D7879630E089536 /* UIControl+FDAdd.m in Sources */,
 				5D16B7C411C8322445168A91A060B5E8 /* UIDevice+FDAdd.m in Sources */,
+				4471B47721B819D90054E428 /* GYBootingProtection.m in Sources */,
 				C3D66B43E0D64B87871E7B9FB24EB7E8 /* UIFont+FDAdd.m in Sources */,
 				2D7C1210DD22D2ED4976996E8791B14E /* UIGestureRecognizer+FDAdd.m in Sources */,
 				FEFDD640B6213C161D237688F7E3A2CA /* UIImage+FDAdd.m in Sources */,

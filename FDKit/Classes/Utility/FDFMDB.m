@@ -71,7 +71,11 @@
 //}
 
 - (BOOL)_excuteDB:(FMDatabase *)db updateSql:(NSString *)updateSql, ... {
-    BOOL result = [db executeUpdate:updateSql];
+    NSError *error;
+    BOOL result = [db executeUpdate:updateSql values:nil error:&error];
+    if (error) {
+        
+    }
     return result;
 }
 

@@ -106,15 +106,17 @@ FDSYNTH_DUMMY_CLASS(UIApplication_FDAdd)
     return [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
 }
 
+////当一个进程被调试的时候，该进程会有一个标记来标记自己正在被调试，所以可以通过sysctl去查看当前进程的信息，看有没有这个标记位即可检查当前调试状态。
 - (BOOL)fd_isBeingDebugged {
     size_t size = sizeof(struct kinfo_proc);
-    struct kinfo_proc info;
-    int ret = 0, name[4];
+    struct kinfo_proc info;//查询的返回结果
+    int ret = 0, name[4];    //指定查询信息的数组
     memset(&info, 0, sizeof(struct kinfo_proc));
     
     name[0] = CTL_KERN;
     name[1] = KERN_PROC;
-    name[2] = KERN_PROC_PID; name[3] = getpid();
+    name[2] = KERN_PROC_PID;
+    name[3] = getpid();
     
     if (ret == (sysctl(name, 4, &info, &size, NULL, 0))) {
         return ret != 0;

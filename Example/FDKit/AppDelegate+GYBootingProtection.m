@@ -16,7 +16,7 @@ static NSString *const cancelButtonTitle = @"取消";
 static NSString *const createCrashButtonTitle = @"制造Crash!";
 static NSString *const mainStoryboardInfoKey = @"UIMainStoryboardFile";
 
-@implementation AppDelegate (GYBootingProtection)
+@implementation FDAppDelegate (GYBootingProtection)
 
 /*
  * 连续闪退检测前需要执行的逻辑，如上报统计初始化

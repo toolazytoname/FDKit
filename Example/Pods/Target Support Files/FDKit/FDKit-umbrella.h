@@ -52,6 +52,7 @@
 #import "FDLineHeightLabel.h"
 #import "FDUnhighlightedButton.h"
 #import "FDDebugObserver.h"
+#import "BPEThreadSafeArray.h"
 #import "codeObfuscation.h"
 #import "FDCAntiDebug.h"
 #import "FDChangeLoctionUtil.h"

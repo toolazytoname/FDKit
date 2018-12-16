@@ -11,7 +11,7 @@
 #import "AFNetworkActivityIndicatorManager.h"
 #import "FDCNetworkCache.h"
 
-
+NSString *const FDCCacheResponseQueueLabel = @"com.weichao.FatDragon.Cartoon.FDCCacheResponseQueueLabel";
 @interface FDCSessionManager()
 
 @end

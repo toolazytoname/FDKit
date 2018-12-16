@@ -43,5 +43,7 @@ TODO: Add long description of the pod here.
   # s.dependency 'AFNetworking', '~> 2.3'
   s.dependency 'FMDB'
   s.dependency 'SDWebImage'
+  s.dependency 'AFNetworking'
+  s.dependency 'YYCache'
 
 end

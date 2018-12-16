@@ -5,8 +5,8 @@
 //  Created by richliu on 16/5/19.
 //
 
-#import "AppDelegate.h"
+#import "FDAppDelegate.h"
 
-@interface AppDelegate (GYBootingProtection)
+@interface FDAppDelegate (GYBootingProtection)
 
 @end

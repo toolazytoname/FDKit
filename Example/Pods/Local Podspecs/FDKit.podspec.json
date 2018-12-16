@@ -29,6 +29,12 @@
     ],
     "SDWebImage": [
 
+    ],
+    "AFNetworking": [
+
+    ],
+    "YYCache": [
+
     ]
   }
 }

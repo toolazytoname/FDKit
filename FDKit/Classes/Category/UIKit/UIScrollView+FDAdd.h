@@ -13,15 +13,28 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSInteger, FDScrollDirection) {
+    FDScrollDirectionNone,
+    FDScrollDirectionRight,
+    FDScrollDirectionLeft,
+    FDScrollDirectionUp,
+    FDScrollDirectionDown,
+    FDScrollDirectionCrazy,
+};
 /**
  Provides extensions for `UIScrollView`.
  */
 @interface UIScrollView (FDAdd)
 
 /**
- pagingEnabled scrollview index
+ pagingEnabled scrollview index for x direction
  */
-@property (nonatomic, assign, readonly) NSUInteger fd_currentIndex;
+@property (nonatomic, assign, readonly) NSUInteger fd_xPagebleIndex;
+
+/**
+ pagingEnabled scrollview index for y direction
+ */
+@property (nonatomic, assign, readonly) NSUInteger fd_YPagebleIndex;
 
 /**
  Scroll content to top with animation.
@@ -81,6 +94,9 @@ NS_ASSUME_NONNULL_BEGIN
  @param animated Use animation.
  */
 - (void)fd_scrollToIndex:(NSUInteger)index animated:(BOOL)animated;
+
+//called in - (void)scrollViewDidScroll:(UIScrollView *)scrollView{};
+- (FDScrollDirection)fd_scrollDirection;
 
 @end
 

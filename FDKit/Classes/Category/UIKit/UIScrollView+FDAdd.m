@@ -11,14 +11,32 @@
 
 #import "UIScrollView+FDAdd.h"
 #import "FDCategoriesMacro.h"
+#import <objc/runtime.h>
+
 
 FDSYNTH_DUMMY_CLASS(UIScrollView_FDAdd)
+
+@interface UIScrollView()
+@property (nonatomic, assign) CGPoint lastContentOffset;
+@end
 
 
 @implementation UIScrollView (FDAdd)
 
-- (NSUInteger)fd_currentIndex {
+- (void)setLastContentOffset:(CGPoint)lastContentOffset {
+    objc_setAssociatedObject(self, @selector(lastContentOffset), @(lastContentOffset), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (CGPoint)lastContentOffset {
+    return [((NSNumber *)objc_getAssociatedObject(self, @selector(lastContentOffset))) CGPointValue];
+}
+
+- (NSUInteger)fd_xPagebleIndex {
     return self.contentOffset.x / CGRectGetWidth(self.bounds);
+}
+
+- (NSUInteger)fd_YPagebleIndex {
+    return self.contentOffset.y / CGRectGetHeight(self.bounds);
 }
 
 - (void)fd_scrollToTop {
@@ -71,6 +89,22 @@ FDSYNTH_DUMMY_CLASS(UIScrollView_FDAdd)
         self.contentOffset = CGPointMake(index * CGRectGetWidth(self.bounds), 0.0f);
     }
     
+}
+
+- (FDScrollDirection)fd_scrollDirection {
+    FDScrollDirection scrollDirection = FDScrollDirectionNone;
+    if (self.lastContentOffset.y > self.contentOffset.y) {
+        scrollDirection = FDScrollDirectionDown;
+    } else if (self.lastContentOffset.y < self.contentOffset.y) {
+        scrollDirection = FDScrollDirectionUp;
+    }
+    if (self.lastContentOffset.x > self.contentOffset.x) {
+        scrollDirection = FDScrollDirectionRight;
+    } else if (self.lastContentOffset.x < self.contentOffset.x) {
+        scrollDirection = FDScrollDirectionLeft;
+    }
+    self.lastContentOffset = self.contentOffset;
+    return scrollDirection;
 }
 
 @end

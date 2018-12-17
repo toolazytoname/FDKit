@@ -8,6 +8,7 @@
 
 #import "UIButton+FDAdd.h"
 #import "UIColor+FDAdd.h"
+#import "UIImage+FDAdd.h"
 
 @implementation UIButton (FDAdd)
 /**
@@ -54,6 +55,11 @@
         }
     });
     dispatch_resume(timer);
+}
+
+- (void)fd_setBackgroundColor:(UIColor *)color forState:(UIControlState)state {
+    UIImage *colorImage = [UIImage fd_imageWithColor:color];
+    [self setImage:colorImage forState:state];
 }
 
 @end

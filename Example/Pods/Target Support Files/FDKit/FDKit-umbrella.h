@@ -52,7 +52,6 @@
 #import "FDLineHeightLabel.h"
 #import "FDUnhighlightedButton.h"
 #import "FDDebugObserver.h"
-#import "BPEThreadSafeArray.h"
 #import "codeObfuscation.h"
 #import "FDCAntiDebug.h"
 #import "FDChangeLoctionUtil.h"
@@ -66,8 +65,8 @@
 #import "FDGuideView.h"
 #import "FDLeftAlignedFlowLayout.h"
 #import "FDSKUDataFilter.h"
+#import "FDThreadSafeMutableArray.h"
 #import "FDWebImagePrefetcher.h"
-#import "AppDelegate+GYBootingProtection.h"
 #import "GYBootingProtection.h"
 #import "PerformanceMonitor.h"
 

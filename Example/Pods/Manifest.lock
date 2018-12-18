@@ -15,7 +15,27 @@ PODS:
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
   - FDKit (0.1.0):
+    - FDKit/Base (= 0.1.0)
+    - FDKit/Category (= 0.1.0)
+    - FDKit/CustomUI (= 0.1.0)
+    - FDKit/Debug (= 0.1.0)
+    - FDKit/Utility (= 0.1.0)
+  - FDKit/Base (0.1.0):
+    - FDKit/Category
+  - FDKit/Category (0.1.0):
+    - FDKit/Category/NoArc (= 0.1.0)
+  - FDKit/Category/NoArc (0.1.0)
+  - FDKit/CustomUI (0.1.0):
+    - FDKit/CustomUI/FDFontStateButton (= 0.1.0)
+    - FDKit/CustomUI/FDLineHeightLabel (= 0.1.0)
+    - FDKit/CustomUI/FDUnHighlightedButton (= 0.1.0)
+  - FDKit/CustomUI/FDFontStateButton (0.1.0)
+  - FDKit/CustomUI/FDLineHeightLabel (0.1.0)
+  - FDKit/CustomUI/FDUnHighlightedButton (0.1.0)
+  - FDKit/Debug (0.1.0)
+  - FDKit/Utility (0.1.0):
     - AFNetworking
+    - FDKit/Category
     - FMDB
     - SDWebImage
     - YYCache
@@ -43,7 +63,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  FDKit: 30fa0138ed3d243f887da160cece21fce4a71bbd
+  FDKit: 0ef52ebf74e6d9da8e7effa2f3c34eb899671600
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952

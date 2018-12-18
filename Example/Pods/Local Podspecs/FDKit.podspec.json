@@ -18,23 +18,76 @@
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "FDKit/Classes/**/*",
-  "requires_arc": [
-    "Classes/FDKit/Category/NSObject+FDAddForARC.m",
-    "Classes/FDKit/Category/NSThread+FDAdd.m"
-  ],
-  "dependencies": {
-    "FMDB": [
+  "subspecs": [
+    {
+      "name": "Category",
+      "requires_arc": true,
+      "source_files": "FDKit/Classes/Category/**/*.{h,m}",
+      "exclude_files": [
+        "FDKit/Classes/Category/Foundation/NSObject+FDAddForARC.m",
+        "FDKit/Classes/Category/Foundation/NSThread+FDAdd.m"
+      ],
+      "subspecs": [
+        {
+          "name": "NoArc",
+          "source_files": [
+            "FDKit/Classes/Category/Foundation/NSObject+FDAddForARC.m",
+            "FDKit/Classes/Category/Foundation/NSThread+FDAdd.m"
+          ],
+          "requires_arc": false
+        }
+      ]
+    },
+    {
+      "name": "Base",
+      "source_files": "FDKit/Classes/Base/**/*.{h,m}",
+      "dependencies": {
+        "FDKit/Category": [
 
-    ],
-    "SDWebImage": [
+        ]
+      }
+    },
+    {
+      "name": "CustomUI",
+      "subspecs": [
+        {
+          "name": "FDFontStateButton",
+          "source_files": "FDKit/Classes/CustomUI/FDFontStateButton.{h,m}"
+        },
+        {
+          "name": "FDLineHeightLabel",
+          "source_files": "FDKit/Classes/CustomUI/FDLineHeightLabel.{h,m}"
+        },
+        {
+          "name": "FDUnHighlightedButton",
+          "source_files": "FDKit/Classes/CustomUI/FDUnHighlightedButton.{h,m}"
+        }
+      ]
+    },
+    {
+      "name": "Debug",
+      "source_files": "FDKit/Classes/Debug/**/*.{h,m}"
+    },
+    {
+      "name": "Utility",
+      "source_files": "FDKit/Classes/Utility/**/*.{h,m}",
+      "dependencies": {
+        "FDKit/Category": [
 
-    ],
-    "AFNetworking": [
+        ],
+        "FMDB": [
 
-    ],
-    "YYCache": [
+        ],
+        "SDWebImage": [
 
-    ]
-  }
+        ],
+        "AFNetworking": [
+
+        ],
+        "YYCache": [
+
+        ]
+      }
+    }
+  ]
 }

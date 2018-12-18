@@ -292,7 +292,7 @@ static NSTimeInterval _yy_CGImageSourceGetGIFFrameDelayAtIndex(CGImageSourceRef 
     CGContextSaveGState(context);
     
     CGRect frame = CGRectMake(0.0f, 0.0f, imageSize.width, imageSize.height);
-    [[self class] drawLinearGradientFromColor:fromColor toColor:toColor gradientType:gradientDirectionType frame:frame context:context];
+    [self fd_drawLinearGradientFromColor:fromColor toColor:toColor gradientType:gradientDirectionType frame:frame context:context];
     
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     CGContextRestoreGState(context);
@@ -330,7 +330,7 @@ static NSTimeInterval _yy_CGImageSourceGetGIFFrameDelayAtIndex(CGImageSourceRef 
             default:
                 break;
         }
-        [[self class] fd_drawLinearGradientFromColor:fromColor toColor:toColor gradientType:gradientDirectionType frame:frame context:context];
+        [self fd_drawLinearGradientFromColor:fromColor toColor:toColor gradientType:gradientDirectionType frame:frame context:context];
     }
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     CGContextRestoreGState(context);

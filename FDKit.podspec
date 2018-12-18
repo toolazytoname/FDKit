@@ -29,21 +29,52 @@ TODO: Add long description of the pod here.
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
+  s.subspec 'Category' do |category|
+      category.requires_arc = true
+      category.source_files = 'FDKit/Classes/Category/**/*.{h,m}'
+      non_arc_files = 'FDKit/Classes/Category/Foundation/NSObject+FDAddForARC.m', 'FDKit/Classes/Category/Foundation/NSThread+FDAdd.m'
+      category.exclude_files = non_arc_files
+      category.subspec 'NoArc' do |na|
+        na.source_files = non_arc_files
+        na.requires_arc = false
+      end
+  end
+  
+  s.subspec 'Base' do |base|
+      base.source_files = 'FDKit/Classes/Base/**/*.{h,m}'
+      base.dependency 'FDKit/Category'
+  end
+  
+  s.subspec 'CustomUI' do |ui|
+      ui.subspec 'FDFontStateButton' do |fontStateButton|
+          fontStateButton.source_files = 'FDKit/Classes/CustomUI/FDFontStateButton.{h,m}'
+      end
+      ui.subspec 'FDLineHeightLabel' do |lineHeightLabel|
+          lineHeightLabel.source_files = 'FDKit/Classes/CustomUI/FDLineHeightLabel.{h,m}'
+      end
+      ui.subspec 'FDUnHighlightedButton' do |unHighlightedButton|
+          unHighlightedButton.source_files = 'FDKit/Classes/CustomUI/FDUnHighlightedButton.{h,m}'
+      end
+  end
+  
+  s.subspec 'Debug' do |debug|
+      debug.source_files = 'FDKit/Classes/Debug/**/*.{h,m}'
+  end
+  
+  s.subspec 'Utility' do |utility|
+      utility.source_files = 'FDKit/Classes/Utility/**/*.{h,m}'
+      utility.dependency 'FDKit/Category'
+      utility.dependency 'FMDB'
+      utility.dependency 'SDWebImage'
+      utility.dependency 'AFNetworking'
+      utility.dependency 'YYCache'
 
-  s.source_files = 'FDKit/Classes/**/*'
-  s.requires_arc = ['Classes/FDKit/Category/NSObject+FDAddForARC.m', 'Classes/FDKit/Category/NSThread+FDAdd.m']
-
+  end
   
   # s.resource_bundles = {
   #   'FDKit' => ['FDKit/Assets/*.png']
   # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
-  s.dependency 'FMDB'
-  s.dependency 'SDWebImage'
-  s.dependency 'AFNetworking'
-  s.dependency 'YYCache'
+  
 
 end

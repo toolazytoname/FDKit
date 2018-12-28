@@ -22,7 +22,6 @@ TODO: Add long description of the pod here.
                        DESC
 
   s.homepage         = 'https://github.com/toolazytoname/FDKit'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'toolazytoname' => 'shuitaiyang747@qq.com' }
   s.source           = { :git => 'https://github.com/toolazytoname/FDKit.git', :tag => s.version.to_s }
@@ -32,7 +31,7 @@ TODO: Add long description of the pod here.
   s.subspec 'Category' do |category|
       category.requires_arc = true
       category.source_files = 'FDKit/Classes/Category/**/*.{h,m}'
-      non_arc_files = 'FDKit/Classes/Category/Foundation/NSObject+FDAddForARC.m', 'FDKit/Classes/Category/Foundation/NSThread+FDAdd.m'
+      non_arc_files = 'FDKit/Classes/Category/NoArc/NSObject+FDAddForARC.{h,m}', 'FDKit/Classes/Category/NoArc/NSThread+FDAdd.{h,m}'
       category.exclude_files = non_arc_files
       category.subspec 'NoArc' do |na|
         na.source_files = non_arc_files

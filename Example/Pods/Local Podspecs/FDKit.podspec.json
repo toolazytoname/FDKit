@@ -24,15 +24,15 @@
       "requires_arc": true,
       "source_files": "FDKit/Classes/Category/**/*.{h,m}",
       "exclude_files": [
-        "FDKit/Classes/Category/Foundation/NSObject+FDAddForARC.m",
-        "FDKit/Classes/Category/Foundation/NSThread+FDAdd.m"
+        "FDKit/Classes/Category/NoArc/NSObject+FDAddForARC.{h,m}",
+        "FDKit/Classes/Category/NoArc/NSThread+FDAdd.{h,m}"
       ],
       "subspecs": [
         {
           "name": "NoArc",
           "source_files": [
-            "FDKit/Classes/Category/Foundation/NSObject+FDAddForARC.m",
-            "FDKit/Classes/Category/Foundation/NSThread+FDAdd.m"
+            "FDKit/Classes/Category/NoArc/NSObject+FDAddForARC.{h,m}",
+            "FDKit/Classes/Category/NoArc/NSThread+FDAdd.{h,m}"
           ],
           "requires_arc": false
         }

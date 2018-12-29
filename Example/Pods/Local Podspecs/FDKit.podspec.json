@@ -77,7 +77,7 @@
         },
         {
           "name": "Confuse",
-          "source_files": "FDKit/Classes/Utility/Confuse/*.{h,m}"
+          "source_files": "FDKit/Classes/Utility/Confuse/*"
         },
         {
           "name": "NetWork",

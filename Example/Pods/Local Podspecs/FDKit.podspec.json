@@ -70,24 +70,74 @@
     },
     {
       "name": "Utility",
-      "source_files": "FDKit/Classes/Utility/**/*.{h,m}",
-      "dependencies": {
-        "FDKit/Category": [
+      "subspecs": [
+        {
+          "name": "AntiDebug",
+          "source_files": "FDKit/Classes/Utility/AntiDebug/*.{h,m}"
+        },
+        {
+          "name": "Confuse",
+          "source_files": "FDKit/Classes/Utility/Confuse/*.{h,m}"
+        },
+        {
+          "name": "NetWork",
+          "source_files": "FDKit/Classes/Utility/NetWork/*.{h,m}",
+          "dependencies": {
+            "AFNetworking": [
 
-        ],
-        "FMDB": [
+            ],
+            "YYCache": [
 
-        ],
-        "SDWebImage": [
+            ]
+          }
+        },
+        {
+          "name": "FMDB",
+          "source_files": "FDKit/Classes/Utility/FMDB/*.{h,m}",
+          "dependencies": {
+            "FMDB": [
 
-        ],
-        "AFNetworking": [
+            ]
+          }
+        },
+        {
+          "name": "GYBootingProtection",
+          "source_files": "FDKit/Classes/Utility/GYBootingProtection/*.{h,m}"
+        },
+        {
+          "name": "GuideView",
+          "source_files": "FDKit/Classes/Utility/GuideView/*.{h,m}"
+        },
+        {
+          "name": "LeftAlignedFlowLayout",
+          "source_files": "FDKit/Classes/Utility/LeftAlignedFlowLayout/*.{h,m}"
+        },
+        {
+          "name": "LocationCoordinate",
+          "source_files": "FDKit/Classes/LocationCoordinate/GuideView/*.{h,m}"
+        },
+        {
+          "name": "PerformanceMonitor",
+          "source_files": "FDKit/Classes/Utility/PerformanceMonitor/*.{h,m}"
+        },
+        {
+          "name": "SKUDataFilter",
+          "source_files": "FDKit/Classes/Utility/SKUDataFilter/*.{h,m}"
+        },
+        {
+          "name": "ThreadSafeMutableArray",
+          "source_files": "FDKit/Classes/Utility/ThreadSafeMutableArray/*.{h,m}"
+        },
+        {
+          "name": "WebImagePrefetcher",
+          "source_files": "FDKit/Classes/Utility/WebImagePrefetcher/*.{h,m}",
+          "dependencies": {
+            "SDWebImage": [
 
-        ],
-        "YYCache": [
-
-        ]
-      }
+            ]
+          }
+        }
+      ]
     }
   ]
 }

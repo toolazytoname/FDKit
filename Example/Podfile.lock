@@ -34,11 +34,34 @@ PODS:
   - FDKit/CustomUI/FDUnHighlightedButton (0.1.0)
   - FDKit/Debug (0.1.0)
   - FDKit/Utility (0.1.0):
-    - AFNetworking
-    - FDKit/Category
+    - FDKit/Utility/AntiDebug (= 0.1.0)
+    - FDKit/Utility/Confuse (= 0.1.0)
+    - FDKit/Utility/FMDB (= 0.1.0)
+    - FDKit/Utility/GuideView (= 0.1.0)
+    - FDKit/Utility/GYBootingProtection (= 0.1.0)
+    - FDKit/Utility/LeftAlignedFlowLayout (= 0.1.0)
+    - FDKit/Utility/LocationCoordinate (= 0.1.0)
+    - FDKit/Utility/NetWork (= 0.1.0)
+    - FDKit/Utility/PerformanceMonitor (= 0.1.0)
+    - FDKit/Utility/SKUDataFilter (= 0.1.0)
+    - FDKit/Utility/ThreadSafeMutableArray (= 0.1.0)
+    - FDKit/Utility/WebImagePrefetcher (= 0.1.0)
+  - FDKit/Utility/AntiDebug (0.1.0)
+  - FDKit/Utility/Confuse (0.1.0)
+  - FDKit/Utility/FMDB (0.1.0):
     - FMDB
-    - SDWebImage
+  - FDKit/Utility/GuideView (0.1.0)
+  - FDKit/Utility/GYBootingProtection (0.1.0)
+  - FDKit/Utility/LeftAlignedFlowLayout (0.1.0)
+  - FDKit/Utility/LocationCoordinate (0.1.0)
+  - FDKit/Utility/NetWork (0.1.0):
+    - AFNetworking
     - YYCache
+  - FDKit/Utility/PerformanceMonitor (0.1.0)
+  - FDKit/Utility/SKUDataFilter (0.1.0)
+  - FDKit/Utility/ThreadSafeMutableArray (0.1.0)
+  - FDKit/Utility/WebImagePrefetcher (0.1.0):
+    - SDWebImage
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
@@ -63,7 +86,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  FDKit: 7cd97dc6c8ec0409844cb53a459c45863d40141f
+  FDKit: 962ae585f7092ac62d305b437a07145b55ee00d2
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952

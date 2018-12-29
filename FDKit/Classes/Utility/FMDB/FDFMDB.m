@@ -14,21 +14,68 @@
 
 //#define DBFileWithoutExtension @"Address"
 //#define DBFileExtension @"sqlite"
-#define DBFileWithExtension @"Address.sqlite"
+#define DBFileWithExtension @"FDFMDB.sqlite"
 
 
 @interface FDFMDB()
+
+/**
+ To perform queries and updates on multiple threads, you'll want to use this queue
+ */
 @property (nonatomic, strong) FMDatabaseQueue *queue;
-//因为可能涉及到数据库的编辑，所以不能放在bundle，需要拷贝到沙盒目录
+
+/**
+ 是否需要编辑数据库
+ */
 @property (nonatomic, assign) BOOL shouldUpdateDB;
-@property (nonatomic, strong) NSString *DBBundlePath;
-@property (nonatomic, strong) NSString *DBSandboxPath;
+
+/**
+ 数据库目录，因为可能涉及到数据库的编辑，所以不能放在bundle，需要拷贝到沙盒目录
+ */
 @property (nonatomic, strong) NSString *DBPath;
+
+/**
+ 数据库所在 bundle 目录
+ */
+@property (nonatomic, strong) NSString *DBBundlePath;
+
+/**
+ 数据库所在沙盒目录
+ */
+@property (nonatomic, strong) NSString *DBSandboxPath;
 
 @end
 
 @implementation FDFMDB
 #pragma mark - public
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _shouldUpdateDB = NO;
+    }
+    return self;
+}
+
+- (instancetype)initWithShouldUpdateDB:(BOOL)shouldUpdateDB {
+    self = [self init];
+    if (self) {
+        _shouldUpdateDB = shouldUpdateDB;
+    }
+    return self;
+}
+
+- (void)executeQueryInQueueWithCompleteBlock:(FDFMDBQueryCompleteBlock)completeBlock
+                                    querySql:(NSString*)querySql, ... {
+    [self.queue inDatabase:^(FMDatabase * _Nonnull db) {
+        FMResultSet *resultSet = [db executeQuery:querySql];
+        if (completeBlock) {
+            completeBlock(resultSet);
+        }
+        [resultSet close];
+    }];
+}
+
+
 - (void)updateinTransactionCompleteBlock:(BPTFMDBCompleteBlock)completeBlock excuteBlock:(BPTFMDBCompleteBlock)excuteBlock {
     [self.queue inTransaction:^(FMDatabase * _Nonnull db, BOOL * _Nonnull rollback) {
         @try {
@@ -51,16 +98,6 @@
     }];
 }
 
-- (void)executeQueryInQueueWithCompleteBlock:(FDFMDBQueryCompleteBlock)completeBlock
-                   querySql:(NSString*)querySql, ... {
-    [self.queue inDatabase:^(FMDatabase * _Nonnull db) {
-        FMResultSet *resultSet = [db executeQuery:querySql];
-        if (completeBlock) {
-            completeBlock(resultSet);
-        }
-        [resultSet close];
-    }];
-}
 
 #pragma mark - private
 //- (BOOL)excuteUpdateBlock:(BPTFMDBExcuteUpdateSqlBlock *)updateBlock {
@@ -90,7 +127,7 @@
 
 - (NSString *)DBPath{
     if (!_DBPath) {
-        _DBPath = self.shouldUpdateDB? self.DBSandboxPath:self.DBBundlePath;
+        _DBPath = self.shouldUpdateDB?self.DBSandboxPath:self.DBBundlePath;
         if (self.shouldUpdateDB) {
             BOOL isFileExists = [[NSFileManager defaultManager] fileExistsAtPath:self.DBSandboxPath];
             if (!isFileExists) {

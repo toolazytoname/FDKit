@@ -63,7 +63,7 @@ TODO: Add long description of the pod here.
           antidebug.source_files = 'FDKit/Classes/Utility/AntiDebug/*.{h,m}'
       end
       utility.subspec 'Confuse' do |confuse|
-          confuse.source_files = 'FDKit/Classes/Utility/Confuse/*.{h,m}'
+          confuse.source_files = 'FDKit/Classes/Utility/Confuse/*'
       end
       utility.subspec 'NetWork' do |netWork|
           netWork.source_files = 'FDKit/Classes/Utility/NetWork/*.{h,m}'

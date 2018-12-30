@@ -7,13 +7,6 @@
 
 #import "FDFMDB.h"
 #import "FMDB.h"
-
-//#import "NSArray+BPTSafe.h"
-//#import "BPTAppMacro.h"
-//#import "BPTAddressDBModel.h"
-
-//#define DBFileWithoutExtension @"Address"
-//#define DBFileExtension @"sqlite"
 #define DBFileWithExtension @"FDFMDB.sqlite"
 
 
@@ -43,6 +36,11 @@
  数据库所在沙盒目录
  */
 @property (nonatomic, strong) NSString *DBSandboxPath;
+
+/**
+ 数据库文件所在bundle
+ */
+@property (nonatomic, strong) NSBundle *DBBundle;
 
 @end
 
@@ -76,48 +74,25 @@
 }
 
 
-- (void)updateinTransactionCompleteBlock:(BPTFMDBCompleteBlock)completeBlock excuteBlock:(BPTFMDBCompleteBlock)excuteBlock {
+- (void)updateinTransactionExcuteBlock:(FDFMDBExcuteUpdateSqlBlock)excuteBlock {
     [self.queue inTransaction:^(FMDatabase * _Nonnull db, BOOL * _Nonnull rollback) {
         @try {
-//            [updateModel.dataArray enumerateObjectsUsingBlock:^(NSArray * _Nonnull dicArrray, NSUInteger idx, BOOL * _Nonnull stop) {
-//                [dicArrray enumerateObjectsUsingBlock:^(NSDictionary*  _Nonnull obj, NSUInteger idxSecond, BOOL * _Nonnull stop) {
-//                    [self _excuteUpdateTable:BPTAddressTableName[idx] addressDic:obj db:db];
-//                }];
-//            }];
-//            updateSql:(NSString *)updateSql, ...
-//            if (excuteBlock) {
-//                excuteBlock(d);
-//            }
             if (excuteBlock) {
-                excuteBlock;
+                excuteBlock(db,rollback);
             }
-            
         } @catch (NSException *exception) {
             *rollback = YES;
         }
     }];
+    
 }
 
-
-#pragma mark - private
-//- (BOOL)excuteUpdateBlock:(BPTFMDBExcuteUpdateSqlBlock *)updateBlock {
-////    BOOL result = [db executeUpdate:updateSql];
-//    updateBlock()
-//    return result;
-//
-//}
-
-- (BOOL)_excuteDB:(FMDatabase *)db updateSql:(NSString *)updateSql, ... {
-    NSError *error;
-    BOOL result = [db executeUpdate:updateSql values:nil error:&error];
-    if (error) {
-        
-    }
+- (BOOL)excuteDB:(FMDatabase *)db updateSql:(NSString *)updateSql error:(NSError * __autoreleasing *)error  {
+    BOOL result = [db executeUpdate:updateSql values:nil error:error];
     return result;
 }
 
 #pragma mark - lazy load
-
 - (FMDatabaseQueue *)queue {
     if (!_queue) {
         _queue = [FMDatabaseQueue databaseQueueWithPath:[self DBPath]];
@@ -151,10 +126,12 @@
 
 - (NSString *)DBBundlePath {
     if (!_DBBundlePath) {
-        NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"BPCityManager" ofType:@"bundle"];
-        NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];
+        NSBundle *bundle = [NSBundle mainBundle];
+        if (_DBBundle) {
+            bundle = _DBBundle;
+        }
         _DBBundlePath = [bundle pathForResource:DBFileWithExtension ofType:@""];
-
+        NSLog(@"DBBundlePath:%@",_DBBundlePath);
     }
     return _DBBundlePath;
 }

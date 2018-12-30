@@ -79,6 +79,7 @@ TODO: Add long description of the pod here.
       end
       utility.subspec 'GuideView' do |guideView|
           guideView.source_files = 'FDKit/Classes/Utility/GuideView/*.{h,m}'
+          guideView.dependency 'FDKit/Category'
       end
       utility.subspec 'LeftAlignedFlowLayout' do |leftAlignedFlowLayout|
           leftAlignedFlowLayout.source_files = 'FDKit/Classes/Utility/LeftAlignedFlowLayout/*.{h,m}'

@@ -101,12 +101,17 @@
           }
         },
         {
-          "name": "GYBootingProtection",
-          "source_files": "FDKit/Classes/Utility/GYBootingProtection/*.{h,m}"
+          "name": "BootingProtection",
+          "source_files": "FDKit/Classes/Utility/FDBootingProtection/*.{h,m}"
         },
         {
           "name": "GuideView",
-          "source_files": "FDKit/Classes/Utility/GuideView/*.{h,m}"
+          "source_files": "FDKit/Classes/Utility/GuideView/*.{h,m}",
+          "dependencies": {
+            "FDKit/Category": [
+
+            ]
+          }
         },
         {
           "name": "LeftAlignedFlowLayout",
@@ -136,6 +141,10 @@
 
             ]
           }
+        },
+        {
+          "name": "Opereation",
+          "source_files": "FDKit/Classes/Utility/Opereation/*.{h,m}"
         }
       ]
     }

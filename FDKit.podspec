@@ -74,8 +74,8 @@ TODO: Add long description of the pod here.
           fmdb.source_files = 'FDKit/Classes/Utility/FMDB/*.{h,m}'
           fmdb.dependency 'FMDB'
       end
-      utility.subspec 'GYBootingProtection' do |bootingProtection|
-          bootingProtection.source_files = 'FDKit/Classes/Utility/GYBootingProtection/*.{h,m}'
+      utility.subspec 'BootingProtection' do |bootingProtection|
+          bootingProtection.source_files = 'FDKit/Classes/Utility/FDBootingProtection/*.{h,m}'
       end
       utility.subspec 'GuideView' do |guideView|
           guideView.source_files = 'FDKit/Classes/Utility/GuideView/*.{h,m}'
@@ -99,6 +99,10 @@ TODO: Add long description of the pod here.
       utility.subspec 'WebImagePrefetcher' do |webImagePrefetcher|
           webImagePrefetcher.source_files = 'FDKit/Classes/Utility/WebImagePrefetcher/*.{h,m}'
           webImagePrefetcher.dependency 'SDWebImage'
+      end
+      utility.subspec 'Opereation' do |opereation|
+          opereation.source_files = 'FDKit/Classes/Utility/Opereation/*.{h,m}'
+          base.dependency 'FDKit/Category'
       end
 #      utility.dependency 'FDKit/Category'
   end

@@ -35,28 +35,31 @@ PODS:
   - FDKit/Debug (0.1.0)
   - FDKit/Utility (0.1.0):
     - FDKit/Utility/AntiDebug (= 0.1.0)
+    - FDKit/Utility/BootingProtection (= 0.1.0)
     - FDKit/Utility/Confuse (= 0.1.0)
     - FDKit/Utility/FMDB (= 0.1.0)
     - FDKit/Utility/GuideView (= 0.1.0)
-    - FDKit/Utility/GYBootingProtection (= 0.1.0)
     - FDKit/Utility/LeftAlignedFlowLayout (= 0.1.0)
     - FDKit/Utility/LocationCoordinate (= 0.1.0)
     - FDKit/Utility/NetWork (= 0.1.0)
+    - FDKit/Utility/Opereation (= 0.1.0)
     - FDKit/Utility/PerformanceMonitor (= 0.1.0)
     - FDKit/Utility/SKUDataFilter (= 0.1.0)
     - FDKit/Utility/ThreadSafeMutableArray (= 0.1.0)
     - FDKit/Utility/WebImagePrefetcher (= 0.1.0)
   - FDKit/Utility/AntiDebug (0.1.0)
+  - FDKit/Utility/BootingProtection (0.1.0)
   - FDKit/Utility/Confuse (0.1.0)
   - FDKit/Utility/FMDB (0.1.0):
     - FMDB
-  - FDKit/Utility/GuideView (0.1.0)
-  - FDKit/Utility/GYBootingProtection (0.1.0)
+  - FDKit/Utility/GuideView (0.1.0):
+    - FDKit/Category
   - FDKit/Utility/LeftAlignedFlowLayout (0.1.0)
   - FDKit/Utility/LocationCoordinate (0.1.0)
   - FDKit/Utility/NetWork (0.1.0):
     - AFNetworking
     - YYCache
+  - FDKit/Utility/Opereation (0.1.0)
   - FDKit/Utility/PerformanceMonitor (0.1.0)
   - FDKit/Utility/SKUDataFilter (0.1.0)
   - FDKit/Utility/ThreadSafeMutableArray (0.1.0)
@@ -86,7 +89,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  FDKit: da35c87cd0bfade39e7dd54cfeca7123d05113f5
+  FDKit: db2fee6d608cbfc0b5ddf5cd33a02c09b6df40f6
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952

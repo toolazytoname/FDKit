@@ -7,6 +7,6 @@
 
 #import "FDAppDelegate.h"
 
-@interface FDAppDelegate (GYBootingProtection)
+@interface FDAppDelegate (FDBootingProtection)
 
 @end

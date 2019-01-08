@@ -7,9 +7,9 @@
 	<key>provisioningProfiles</key>
 	<dict>
 		<key>bitauto.application</key>
-		<string>xxxxx</string>
+		<string>qichehuiRelease</string>
 		<key>bitauto.application.NSExtension</key>
-		<string>xxxxx</string>
+		<string>YC:bitautoApplicationNotificationServiceRelease</string>
 	</dict>
 	<key>signingCertificate</key>
 	<string>iPhone Distribution</string>
@@ -18,7 +18,7 @@
 	<key>stripSwiftSymbols</key>
 	<true/>
 	<key>teamID</key>
-	<string>xxxxxxxx</string>
+	<string>HCKT9YBE68</string>
 	<key>uploadBitcode</key>
 	<false/>
 	<key>uploadSymbols</key>

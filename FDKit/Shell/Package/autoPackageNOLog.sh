@@ -1,13 +1,30 @@
+BitAutoPlusGitLabURL=http://gitlab.bitautotech.com/WP/Mobile/IOS/BitAutoPlus
+echo '///-----------'
+echo '/// Git '
+echo '///-----------'
+#工程绝对路径
+project_path=$(cd `dirname $0`; pwd)
+echo  'project_path:'${project_path}
+cd ${project_path}
+cd ../
+echo "pwd:$(pwd)"
+work_path=$(pwd)
+git clone ${BitAutoPlusGitLabURL}
+cd BitAutoPlus
+git pull
+git checkout develop
+git log -1
+git branch
+
 
 #podfile的路径
 Podfile_URL=http://gitlab.bitautotech.com/wangyong3/podfile/raw/master/Podfile
 
-# 【配置上传到蒲公英相关信息】(可选)
-__PGYER_U_KEY="db453c9b267a5cf97f151b7fc67d56a5"
-__PGYER_API_KEY="af9710b56122251835eefa1b92bfcd4d"
 
-#工程绝对路径
-project_path=$(cd `dirname $0`; pwd)
+# 【配置上传到蒲公英相关信息】(可选)
+__PGYER_U_KEY="XXXXXX"
+__PGYER_API_KEY="XXXXXX"
+
 
 #工程名
 project_name=BitAutoPlus
@@ -19,16 +36,16 @@ scheme_name=BitAutoPlus
 development_mode=Release
 
 #build文件夹路径
-build_path=${project_path}/Package/build
+build_path=${work_path}/Package/build
 
 BUILD_DATETIME=`date '+%Y-%m-%d-%H:%M:%S'`
 archivePath=${build_path}/${project_name}${BUILD_DATETIME}.xcarchive
 
 #plist文件所在路径
-exportOptionsPlistPath=${project_path}/Package/plist/enterprise.plist
+exportOptionsPlistPath=${work_path}/Package/plist/enterprise.plist
 
 #导出.ipa文件所在路径
-exportIpaPath=${project_path}/Package/IPADir/${development_mode}/${BUILD_DATETIME}
+exportIpaPath=${work_path}/Package/IPADir/${development_mode}/${BUILD_DATETIME}
 #echo "Place enter the number you want to export ? [ 1:app-store 2:enterprise] "
 number=2
 ##
@@ -54,9 +71,15 @@ echo '///-----------'
 curl ${Podfile_URL} > Podfile
 
 echo '///-----------'
+echo '/// cat Podfile '
+echo '///-----------'
+cat Podfile
+cat Podfile > ./BitAutoPlus/packageInfo
+
+echo '///-----------'
 echo '/// pod update'
 echo '///-----------'
-pod update
+/usr/local/bin/pod update --verbose
 
 echo '///-----------'
 echo '/// 正在清理工程'
@@ -74,7 +97,7 @@ echo '///-----------'
 echo '/// 正在编译工程:'${development_mode}
 echo '///-----------'
 xcodebuild \
-archive -workspace ${project_path}/${project_name}.xcworkspace \
+archive -workspace ${work_path}/${project_name}/${project_name}.xcworkspace \
 -scheme ${scheme_name} \
 -configuration ${development_mode} \
 -archivePath ${archivePath}  -quiet  || exit
@@ -123,9 +146,9 @@ else
 
 # 上传蒲公英
 curl -F "file=@$exportIpaPath/$scheme_name.ipa" \
-  -F "uKey=$__PGYER_U_KEY" \
-  -F "_api_key=$__PGYER_API_KEY" \
-  "http://www.pgyer.com/apiv1/app/upload"
+-F "uKey=$__PGYER_U_KEY" \
+-F "_api_key=$__PGYER_API_KEY" \
+"http://www.pgyer.com/apiv1/app/upload"
 
 echo "上传 ${exportIpaPath}/${scheme_name}.ipa 包 到 pgyer 成功 🎉 🎉 🎉"
 

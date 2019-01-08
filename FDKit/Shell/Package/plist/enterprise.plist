@@ -9,9 +9,9 @@
 	<key>provisioningProfiles</key>
 	<dict>
 		<key>bitauto.application</key>
-		<string>xxx</string>
+		<string>299_2017.09.26</string>
 		<key>bitauto.application.NSExtension</key>
-		<string>xxx</string>
+		<string>299_2017.09.26</string>
 	</dict>
 	<key>signingCertificate</key>
 	<string>iPhone Distribution</string>
@@ -20,7 +20,7 @@
 	<key>stripSwiftSymbols</key>
 	<true/>
 	<key>teamID</key>
-	<string>xxxxx</string>
+	<string>77MMW6NR5H</string>
 	<key>thinning</key>
 	<string>&lt;none&gt;</string>
 </dict>

@@ -154,6 +154,16 @@ FDSYNTH_DUMMY_CLASS(NSArray_FDAdd)
     }
 }
 
+- (void)fd_replaceObjectAtIndex:(NSUInteger)index withObject:(id)object {
+    if (!object) {
+        return;
+    }
+    if (index > self.count) {
+        return;
+    }
+    [self replaceObjectAtIndex:index withObject:object];
+}
+
 - (void)fd_reverse {
     NSUInteger count = self.count;
     int mid = floor(count / 2.0);

@@ -181,6 +181,14 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)fd_insertObjects:(NSArray *)objects atIndex:(NSUInteger)index;
 
 /**
+ Replaces the object at index with anObject.
+
+ @param index The index of the object to be replaced.
+ @param object The object with which to replace the object at index index in the array.
+ */
+- (void)fd_replaceObjectAtIndex:(NSUInteger)index withObject:(id)object;
+
+/**
  Reverse the index of object in this array.
  Example: Before @[ @1, @2, @3 ], After @[ @3, @2, @1 ].
  */

@@ -7,8 +7,6 @@
 
 #import "FDOperation.h"
 #import "FDCategoriesMacro.h"
-#import "NSObject+FDAddForKVO.h"
-
 
 #define  willExecut [self willChangeValueForKey:@"isExecuting"];
 #define  didExecut [self didChangeValueForKey:@"isExecuting"];
@@ -33,17 +31,10 @@
         if (model) {
             self.fd_model = model;
             @weakify(self)
-            [self fd_addObserverBlockForKeyPath:@"isCancelled" block:^(id  _Nonnull obj, id  _Nonnull oldVal, id  _Nonnull newVal) {
-                @strongify(self)
-                if ([newVal isEqual: @(YES)]) {
-                    [self fd_cancel];
-                }
-            }];
             self.fd_finishBlock = ^{
                 @strongify(self)
                 [self fd_finish];
             };
-
         }
     }
     return self;
@@ -55,7 +46,7 @@
 
 - (void)start {
     if (self.isCancelled) {
-        [self fd_finish];
+        [self fd_cancel];
         return;
     }
     [self main];
@@ -80,7 +71,6 @@
 
 #pragma mark - kov change method
 - (void)fd_finish {
-    [self fd_removeObserverBlocks];
     [self fd_changeExecuting_NO];
     [self fd_chageFinished_YES];
 }

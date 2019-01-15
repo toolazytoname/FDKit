@@ -18,7 +18,7 @@ typedef void(^FDOperationFinishBlock)(void);
  - (void)fd_work {
     [BPERequestManager startRequest:self.preRequest.request completion:^(BPEResponseModel *model) {
         if (self.isCancelled) {
-            self.fd_finishBlock;
+            [self fd_cancel];
             return;
         }
         dispatch_async_on_main_queue(^{
@@ -35,7 +35,7 @@ typedef void(^FDOperationFinishBlock)(void);
 /**
  调用结束以后执行fd_finishBlock设置kvo状态
  例如：
- - (void)_cancelAction {
+ - (void)fd_cancel {
     if (self.preRequest.request) {
         [self.preRequest.request stop];
     }

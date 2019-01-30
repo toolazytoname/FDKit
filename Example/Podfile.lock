@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - Aspects (1.4.1)
   - FDKit (0.1.0):
     - FDKit/Base (= 0.1.0)
     - FDKit/Category (= 0.1.0)
@@ -32,7 +33,12 @@ PODS:
   - FDKit/CustomUI/FDFontStateButton (0.1.0)
   - FDKit/CustomUI/FDLineHeightLabel (0.1.0)
   - FDKit/CustomUI/FDUnHighlightedButton (0.1.0)
-  - FDKit/Debug (0.1.0)
+  - FDKit/Debug (0.1.0):
+    - FDKit/Debug/DebugObserver (= 0.1.0)
+    - FDKit/Debug/HitTestInspect (= 0.1.0)
+  - FDKit/Debug/DebugObserver (0.1.0)
+  - FDKit/Debug/HitTestInspect (0.1.0):
+    - Aspects
   - FDKit/Utility (0.1.0):
     - FDKit/Utility/AntiDebug (= 0.1.0)
     - FDKit/Utility/BootingProtection (= 0.1.0)
@@ -59,7 +65,8 @@ PODS:
   - FDKit/Utility/NetWork (0.1.0):
     - AFNetworking
     - YYCache
-  - FDKit/Utility/Opereation (0.1.0)
+  - FDKit/Utility/Opereation (0.1.0):
+    - FDKit/Category
   - FDKit/Utility/PerformanceMonitor (0.1.0)
   - FDKit/Utility/SKUDataFilter (0.1.0)
   - FDKit/Utility/ThreadSafeMutableArray (0.1.0)
@@ -74,11 +81,13 @@ PODS:
   - YYCache (1.0.4)
 
 DEPENDENCIES:
+  - Aspects
   - FDKit (from `../`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
+    - Aspects
     - FMDB
     - SDWebImage
     - YYCache
@@ -89,11 +98,12 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  FDKit: db2fee6d608cbfc0b5ddf5cd33a02c09b6df40f6
+  Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
+  FDKit: 84d284269980dc7ffc39df6452b22a703759aa7c
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: 1e4cac7f58b03d88f2512af77de872418802d7af
+PODFILE CHECKSUM: ef91ab53ffa966caab13dad726bd31c2757928b5
 
 COCOAPODS: 1.5.3

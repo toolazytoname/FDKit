@@ -103,14 +103,14 @@ FDSYNTH_DUMMY_CLASS(UIView_FDAdd)
 
 - (NSString *)fd_brotherTextFieldValue {
     __block NSString *textValue;
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+//    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
     [self.superview.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([obj isKindOfClass:UITextField.class]) {
             textValue = ((UITextField *)obj).text;
-            dispatch_semaphore_signal(semaphore);
+//            dispatch_semaphore_signal(semaphore);
         }
     }];
-    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+//    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
     return textValue;
 }
 

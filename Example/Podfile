@@ -29,6 +29,8 @@ target 'FDKit_Example' do
 #  pod 'SystemServices', '~> 2.0.1'
 #  #    pod 'PLCrashReporter'
 #  pod 'KSCrash', '~> 1.15'
+
+  pod 'Aspects'
 #  
 #  #组件化
 #  pod 'CTMediator'

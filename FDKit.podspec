@@ -56,7 +56,14 @@ TODO: Add long description of the pod here.
       end
   end
   s.subspec 'Debug' do |debug|
-      debug.source_files = 'FDKit/Classes/Debug/**/*.{h,m}'
+      debug.subspec 'DebugObserver' do |debugobserver|
+          debugobserver.source_files = 'FDKit/Classes/Debug/DebugObserver/**/*.{h,m}'
+      end
+      debug.subspec 'HitTestInspect' do |hittestinspect|
+          hittestinspect.source_files = 'FDKit/Classes/Debug/HitTestInspect/**/*.{h,m}'
+          hittestinspect.dependency 'Aspects'
+          hittestinspect.dependency 'FDKit/Category'
+      end
   end
   s.subspec 'Utility' do |utility|
       utility.subspec 'AntiDebug' do |antidebug|
@@ -102,7 +109,7 @@ TODO: Add long description of the pod here.
       end
       utility.subspec 'Opereation' do |opereation|
           opereation.source_files = 'FDKit/Classes/Utility/Opereation/*.{h,m}'
-          base.dependency 'FDKit/Category'
+          opereation.dependency 'FDKit/Category'
       end
 #      utility.dependency 'FDKit/Category'
   end

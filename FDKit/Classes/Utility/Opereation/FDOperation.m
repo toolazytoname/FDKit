@@ -40,10 +40,6 @@
     return self;
 }
 
-- (void)dealloc {
-    [self fd_removeObserverBlocks];
-}
-
 - (void)start {
     if (self.isCancelled) {
         [self fd_cancel];
@@ -63,7 +59,7 @@
 
 #pragma mark - public method
 - (void)fd_cancel {
-    self.fd_finishBlock;
+    [self fd_finishBlock];
 }
 
 - (void)fd_work {

@@ -44,11 +44,14 @@ FDSYNTH_DUMMY_CLASS(UIDevice_FDAdd)
 }
 
 - (BOOL)fd_isSimulator {
-    static dispatch_once_t one;
-    static BOOL simu;
-    dispatch_once(&one, ^{
-        simu = NSNotFound != [[self model] rangeOfString:@"Simulator"].location;
-    });
+    BOOL simu;
+#if (TARGET_IPHONE_SIMULATOR)
+    // 在模拟器的情况下
+    simu = YES;
+#else
+    // 在真机情况下
+    simu = NO ;
+#endif
     return simu;
 }
 

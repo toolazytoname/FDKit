@@ -39,6 +39,7 @@ PODS:
   - FDKit/Debug/DebugObserver (0.1.0)
   - FDKit/Debug/HitTestInspect (0.1.0):
     - Aspects
+    - FDKit/Category
   - FDKit/Utility (0.1.0):
     - FDKit/Utility/AntiDebug (= 0.1.0)
     - FDKit/Utility/BootingProtection (= 0.1.0)
@@ -99,7 +100,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
-  FDKit: 84d284269980dc7ffc39df6452b22a703759aa7c
+  FDKit: 90836389f40ea4f85c2675473d98c8c5324458cb
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952

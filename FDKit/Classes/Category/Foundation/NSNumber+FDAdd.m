@@ -60,4 +60,18 @@ FDSYNTH_DUMMY_CLASS(NSNumber_FDAdd)
     return [formatter numberFromString:string];
 }
 
++ (NSUInteger)fd_RandomTo:(NSUInteger)to {
+    NSUInteger random = arc4random() % to;
+    return random;
+}
+
++ (NSUInteger)fd_RandomFrom:(NSUInteger)from to:(NSUInteger)to {
+    NSUInteger random = (arc4random() % (from + 1)) + to - from;
+    return random;
+}
+
+//-(NSUInteger)getRandomNumber:(NSUInteger)from to:(NSUInteger)to {
+//    return (int)(from + (arc4random() % (to – from + 1)));
+//}
+
 @end

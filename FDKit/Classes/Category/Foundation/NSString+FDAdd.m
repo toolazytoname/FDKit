@@ -473,4 +473,13 @@ FDSYNTH_DUMMY_CLASS(NSString_FDAdd)
 + (NSString *)fd_timeStampWithDate:(NSDate *)date {
     return [NSString stringWithFormat:@"%ld",(long)[date timeIntervalSince1970] * 1000];
 }
+
+//+ (NSString *)fd_randomWithLength:(NSUInteger)length {
+//    NSUInteger powInteger = pow(10, length);
+//    NSUInteger num = (arc4random() % powInteger);
+//    //    @"%.4d" 不知道怎么用length匹配
+//    NSString *randomNumber = [NSString stringWithFormat:@"%.4d", num];
+////    NSString *randomNumber = [NSString stringWithFormat:@"%.zd",length , num];
+//    return randomNumber;
+//}
 @end

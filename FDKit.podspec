@@ -93,7 +93,7 @@ My personal SwissArmyKnife.
           leftAlignedFlowLayout.source_files = 'FDKit/Classes/Utility/LeftAlignedFlowLayout/*.{h,m}'
       end
       utility.subspec 'LocationCoordinate' do |locationCoordinate|
-          locationCoordinate.source_files = 'FDKit/Classes/LocationCoordinate/GuideView/*.{h,m}'
+          locationCoordinate.source_files = 'FDKit/Classes/Utility/LocationCoordinate/*.{h,m}'
       end
       utility.subspec 'PerformanceMonitor' do |performanceMonitor|
           performanceMonitor.source_files = 'FDKit/Classes/Utility/PerformanceMonitor/*.{h,m}'

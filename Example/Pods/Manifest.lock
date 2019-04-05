@@ -15,6 +15,12 @@ PODS:
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
   - Aspects (1.4.1)
+  - CocoaLumberjack (3.4.2):
+    - CocoaLumberjack/Default (= 3.4.2)
+    - CocoaLumberjack/Extensions (= 3.4.2)
+  - CocoaLumberjack/Default (3.4.2)
+  - CocoaLumberjack/Extensions (3.4.2):
+    - CocoaLumberjack/Default
   - FDKit (0.1.0):
     - FDKit/Base (= 0.1.0)
     - FDKit/Category (= 0.1.0)
@@ -44,10 +50,12 @@ PODS:
     - FDKit/Utility/AntiDebug (= 0.1.0)
     - FDKit/Utility/BootingProtection (= 0.1.0)
     - FDKit/Utility/Confuse (= 0.1.0)
+    - FDKit/Utility/Crash (= 0.1.0)
     - FDKit/Utility/FMDB (= 0.1.0)
     - FDKit/Utility/GuideView (= 0.1.0)
     - FDKit/Utility/LeftAlignedFlowLayout (= 0.1.0)
     - FDKit/Utility/LocationCoordinate (= 0.1.0)
+    - FDKit/Utility/Log (= 0.1.0)
     - FDKit/Utility/NetWork (= 0.1.0)
     - FDKit/Utility/Opereation (= 0.1.0)
     - FDKit/Utility/PerformanceMonitor (= 0.1.0)
@@ -57,12 +65,16 @@ PODS:
   - FDKit/Utility/AntiDebug (0.1.0)
   - FDKit/Utility/BootingProtection (0.1.0)
   - FDKit/Utility/Confuse (0.1.0)
+  - FDKit/Utility/Crash (0.1.0):
+    - KSCrash
   - FDKit/Utility/FMDB (0.1.0):
     - FMDB
   - FDKit/Utility/GuideView (0.1.0):
     - FDKit/Category
   - FDKit/Utility/LeftAlignedFlowLayout (0.1.0)
   - FDKit/Utility/LocationCoordinate (0.1.0)
+  - FDKit/Utility/Log (0.1.0):
+    - CocoaLumberjack
   - FDKit/Utility/NetWork (0.1.0):
     - AFNetworking
     - YYCache
@@ -76,6 +88,69 @@ PODS:
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
+  - KSCrash (1.15.18):
+    - KSCrash/Installations (= 1.15.18)
+  - KSCrash/Installations (1.15.18):
+    - KSCrash/Recording
+    - KSCrash/Reporting
+  - KSCrash/Recording (1.15.18):
+    - KSCrash/Recording/Tools (= 1.15.18)
+  - KSCrash/Recording/Tools (1.15.18)
+  - KSCrash/Reporting (1.15.18):
+    - KSCrash/Recording
+    - KSCrash/Reporting/Filters (= 1.15.18)
+    - KSCrash/Reporting/MessageUI (= 1.15.18)
+    - KSCrash/Reporting/Sinks (= 1.15.18)
+    - KSCrash/Reporting/Tools (= 1.15.18)
+  - KSCrash/Reporting/Filters (1.15.18):
+    - KSCrash/Recording
+    - KSCrash/Reporting/Filters/Alert (= 1.15.18)
+    - KSCrash/Reporting/Filters/AppleFmt (= 1.15.18)
+    - KSCrash/Reporting/Filters/Base (= 1.15.18)
+    - KSCrash/Reporting/Filters/Basic (= 1.15.18)
+    - KSCrash/Reporting/Filters/GZip (= 1.15.18)
+    - KSCrash/Reporting/Filters/JSON (= 1.15.18)
+    - KSCrash/Reporting/Filters/Sets (= 1.15.18)
+    - KSCrash/Reporting/Filters/Stringify (= 1.15.18)
+    - KSCrash/Reporting/Filters/Tools (= 1.15.18)
+  - KSCrash/Reporting/Filters/Alert (1.15.18):
+    - KSCrash/Recording
+    - KSCrash/Reporting/Filters/Base
+  - KSCrash/Reporting/Filters/AppleFmt (1.15.18):
+    - KSCrash/Recording
+    - KSCrash/Reporting/Filters/Base
+  - KSCrash/Reporting/Filters/Base (1.15.18):
+    - KSCrash/Recording
+  - KSCrash/Reporting/Filters/Basic (1.15.18):
+    - KSCrash/Recording
+    - KSCrash/Reporting/Filters/Base
+  - KSCrash/Reporting/Filters/GZip (1.15.18):
+    - KSCrash/Recording
+    - KSCrash/Reporting/Filters/Base
+  - KSCrash/Reporting/Filters/JSON (1.15.18):
+    - KSCrash/Recording
+    - KSCrash/Reporting/Filters/Base
+  - KSCrash/Reporting/Filters/Sets (1.15.18):
+    - KSCrash/Recording
+    - KSCrash/Reporting/Filters/AppleFmt
+    - KSCrash/Reporting/Filters/Base
+    - KSCrash/Reporting/Filters/Basic
+    - KSCrash/Reporting/Filters/GZip
+    - KSCrash/Reporting/Filters/JSON
+    - KSCrash/Reporting/Filters/Stringify
+  - KSCrash/Reporting/Filters/Stringify (1.15.18):
+    - KSCrash/Recording
+    - KSCrash/Reporting/Filters/Base
+  - KSCrash/Reporting/Filters/Tools (1.15.18):
+    - KSCrash/Recording
+  - KSCrash/Reporting/MessageUI (1.15.18):
+    - KSCrash/Recording
+  - KSCrash/Reporting/Sinks (1.15.18):
+    - KSCrash/Recording
+    - KSCrash/Reporting/Filters
+    - KSCrash/Reporting/Tools
+  - KSCrash/Reporting/Tools (1.15.18):
+    - KSCrash/Recording
   - SDWebImage (4.4.3):
     - SDWebImage/Core (= 4.4.3)
   - SDWebImage/Core (4.4.3)
@@ -89,7 +164,9 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
     - Aspects
+    - CocoaLumberjack
     - FMDB
+    - KSCrash
     - SDWebImage
     - YYCache
 
@@ -100,8 +177,10 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
-  FDKit: 90836389f40ea4f85c2675473d98c8c5324458cb
+  CocoaLumberjack: db7cc9e464771f12054c22ff6947c5a58d43a0fd
+  FDKit: 10e12833b520ff0c3d47e6a8fa8ac17dc084878c
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  KSCrash: 5394936f41e5c1ef7b79cf79b30d53299b0c160e
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 

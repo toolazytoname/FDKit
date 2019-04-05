@@ -111,6 +111,17 @@ TODO: Add long description of the pod here.
           opereation.source_files = 'FDKit/Classes/Utility/Opereation/*.{h,m}'
           opereation.dependency 'FDKit/Category'
       end
+      utility.subspec 'Crash' do |opereation|
+          opereation.source_files = 'FDKit/Classes/Utility/Crash/*.{h,m}'
+          opereation.dependency 'KSCrash'
+      end
+      utility.subspec 'Log' do |opereation|
+          opereation.source_files = 'FDKit/Classes/Utility/Log/*.{h,m}'
+          opereation.dependency 'CocoaLumberjack'
+      end
+
+
+      
 #      utility.dependency 'FDKit/Category'
   end
   # s.resource_bundles = {

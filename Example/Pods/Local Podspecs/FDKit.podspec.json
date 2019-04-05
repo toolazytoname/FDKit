@@ -167,6 +167,24 @@
 
             ]
           }
+        },
+        {
+          "name": "Crash",
+          "source_files": "FDKit/Classes/Utility/Crash/*.{h,m}",
+          "dependencies": {
+            "KSCrash": [
+
+            ]
+          }
+        },
+        {
+          "name": "Log",
+          "source_files": "FDKit/Classes/Utility/Log/*.{h,m}",
+          "dependencies": {
+            "CocoaLumberjack": [
+
+            ]
+          }
         }
       ]
     }

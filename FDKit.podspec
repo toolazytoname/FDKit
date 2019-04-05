@@ -17,7 +17,7 @@ My personal SwissArmyKnife.
   s.subspec 'Category' do |category|
       # category.requires_arc = true
       # category.source_files = 'FDKit/Classes/Category/**/*.{h,m}'
-      # non_arc_files = 'FDKit/Classes/Category/NoArc/NSObject+FDAddForARC.{h,m}', 'FDKit/Classes/Category/NoArc/NSThread+FDAdd.{h,m}'
+      non_arc_files = 'FDKit/Classes/Category/NoArc/NSObject+FDAddForARC.{h,m}', 'FDKit/Classes/Category/NoArc/NSThread+FDAdd.{h,m}'
       # category.exclude_files = non_arc_files
       category.subspec 'Macro' do |macro|
           macro.source_files = 'FDKit/Classes/Category/FDCategoriesMacro.h'
@@ -52,6 +52,9 @@ My personal SwissArmyKnife.
       end
       ui.subspec 'FDUnHighlightedButton' do |unHighlightedButton|
           unHighlightedButton.source_files = 'FDKit/Classes/CustomUI/FDUnHighlightedButton.{h,m}'
+      end
+      ui.subspec 'FDTabBar' do |tabbar|
+          tabbar.source_files = 'FDKit/Classes/CustomUI/FDTabBar/*.{h,m}'
       end
   end
   s.subspec 'Debug' do |debug|

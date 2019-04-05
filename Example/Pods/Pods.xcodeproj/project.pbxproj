@@ -1650,6 +1650,14 @@
 			path = FDKit/Classes/Inherited;
 			sourceTree = "<group>";
 		};
+		44B467FA2257FC000093B59A /* FDTabBar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = FDTabBar;
+			path = FDKit/Classes/CustomUI/FDTabBar;
+			sourceTree = "<group>";
+		};
 		4658B1CB2FA25474D8FF1C1F25D5DB28 /* Default */ = {
 			isa = PBXGroup;
 			children = (
@@ -1891,6 +1899,7 @@
 		740E6CBEFB1036D7F1B21606D923FEB3 /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
+				44B467FA2257FC000093B59A /* FDTabBar */,
 				F242DC7AAE9FEBE90294E104574B9E80 /* FDFontStateButton */,
 				DE4A4A494DBF4E2AF798933AB91E64C8 /* FDLineHeightLabel */,
 				0B686114805B9B5B4836B890DE19D901 /* FDUnHighlightedButton */,

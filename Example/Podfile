@@ -3,35 +3,31 @@ use_frameworks!
 target 'FDKit_Example' do
   pod 'FDKit', :path => '../'
 
-  #UI
+#  UI
 #  pod 'Masonry'
 #  pod 'SDWebImage'
 #  pod 'SVPullToRefresh'
 #  pod 'MBProgressHUD'
 #  pod 'WMPageController'
-#  #Model
+#  Model
 #  pod 'YYModel'
 #  pod 'WCDB'
 #  pod 'YYCache'
-#  #Network
+#  Network
 #  pod 'AFNetworking'
-#  #Debug
+#  Debug
 #  pod 'Reveal-iOS-SDK', :configurations => ['Debug']
 #  pod 'CocoaLumberjack'
-#  
-#  #性能检测
-#  #内存泄漏
-#  pod 'MLeaksFinder'
-#  #循环引用
-#  pod 'FBRetainCycleDetector'
-#  
-#  pod 'KMCGeigerCounter'
-#  pod 'SystemServices', '~> 2.0.1'
-#  #    pod 'PLCrashReporter'
+#  性能检测
+#  pod 'matrix-wechat' #崩溃、卡顿和爆内存
+#  pod 'MLeaksFinder'#内存泄漏
+#  pod 'FBRetainCycleDetector'#循环引用
+#  pod 'KMCGeigerCounter'#FPS
+#  pod 'SystemServices', '~> 2.0.1'# 所有设备信息
+#  异常捕捉
+#  pod 'PLCrashReporter'
 #  pod 'KSCrash', '~> 1.15'
-
-  pod 'Aspects'
-#  
+#  pod 'Aspects'#切面
 #  #组件化
 #  pod 'CTMediator'
   

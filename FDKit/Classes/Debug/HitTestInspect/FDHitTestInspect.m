@@ -7,7 +7,6 @@
 
 #import "FDHitTestInspect.h"
 #import "Aspects.h"
-#import "UIResponder+Inspect.h"
 
 
 @implementation FDHitTestInspect
@@ -21,7 +20,7 @@
         [invocation getReturnValue:&hitTestView];
         UIView *result = hitTestView;
         if (result == aspectInfo.instance) {
-            NSLog(@"[FDResponder Chain]:%@",[UIResponder responderChainWithResponder:aspectInfo.instance]) ;
+            NSLog(@"[FDResponder Chain]:%@",[self responderChainWithResponder:aspectInfo.instance]) ;
             NSLog(@"[FDPointInside Chain]:%@",pointInsideChain) ;
         }
     } error:NULL];
@@ -100,4 +99,15 @@
 + (void)log:(id<AspectInfo>)aspectInfo {
     NSLog(@"class:%@;selector:%@;address:%p",NSStringFromClass([aspectInfo.instance class]),NSStringFromSelector(aspectInfo.originalInvocation.selector),aspectInfo.instance);
 }
+
++ (NSString *)responderChainWithResponder:(UIResponder *)firstResponder
+{
+    UIResponder *responder = firstResponder;
+    NSMutableString *responderChain = [NSMutableString stringWithFormat:@"%@ %p",responder.class,responder];
+    while ((responder = [responder nextResponder])) {
+        [responderChain appendFormat:@" => %@ %p",responder.class,responder];
+    }
+    return responderChain;
+}
+
 @end

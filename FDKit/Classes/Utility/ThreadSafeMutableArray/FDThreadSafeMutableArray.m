@@ -6,6 +6,8 @@
 //
 
 #import "FDThreadSafeMutableArray.h"
+
+//读写锁
 #define read(...)\
     dispatch_sync(self.concurrent_queue, ^{ \
         __VA_ARGS__ \

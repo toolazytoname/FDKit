@@ -10,7 +10,7 @@
 #import <CocoaLumberjack/CocoaLumberjack.h>
 static const DDLogLevel ddLogLevel = DDLogLevelDebug;
 
-
+#define FDLogDebug(frmt, ...)   [FDLogger sharedLogger]; DDLogDebug(frmt, ##__VA_ARGS__)
 
 NS_ASSUME_NONNULL_BEGIN
 

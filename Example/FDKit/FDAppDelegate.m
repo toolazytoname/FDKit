@@ -8,6 +8,7 @@
 
 #import "FDAppDelegate.h"
 #import "NSString+FDAdd.h"
+#import "FDLogger.h"
 
 @implementation FDAppDelegate
 
@@ -16,7 +17,9 @@
     // Override point for customization after application launch.
 //    NSString *test = [NSString fd_randomWithLength:6];
 //    NSLog(@"%@",test);
-    NSUInteger powInteger = pow(10, 4);
+//    NSUInteger powInteger = pow(10, 4);
+    
+    FDLogDebug(@"testString:%@",@"test");
 
 
     return YES;

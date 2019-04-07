@@ -6,8 +6,10 @@
 //
 
 #import "FDCrashReportSinkCustom.h"
-#import "KSCrashReportFilterAppleFmt.h"
-#import "KSCrashReportFilterBasic.h"
+//#import "KSCrashReportFilterAppleFmt.h"
+//#import "KSCrashReportFilterBasic.h"
+#import <KSCrash/KSCrashReportFilterBasic.h>
+#import <KSCrash/KSCrashReportFilterAppleFmt.h>
 #import "FDLogger.h"
 
 @implementation BPCrashReportSinkCustom

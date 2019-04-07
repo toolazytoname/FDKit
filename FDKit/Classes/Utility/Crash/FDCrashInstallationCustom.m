@@ -7,9 +7,10 @@
 
 #import "FDCrashInstallationCustom.h"
 #import "FDCrashReportSinkCustom.h"
-#import "KSCrashInstallation+Private.h"
-#import "KSCrashReportFilterBasic.h"
-
+//#import "KSCrashInstallation+Private.h"
+//#import "KSCrashReportFilterBasic.h"
+#import <KSCrash/KSCrashInstallation+Private.h>
+#import <KSCrash/KSCrashReportFilterBasic.h>
 
 @implementation FDCrashInstallationCustom
 + (instancetype)sharedInstance {

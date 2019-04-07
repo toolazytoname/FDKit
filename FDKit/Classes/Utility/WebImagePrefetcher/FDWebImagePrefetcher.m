@@ -9,8 +9,8 @@
 #import "FDWebImagePrefetcher.h"
 #import "NSArray+FDAdd.h"
 
-static const NSInteger kDefaultCacheMaxCacheAge = 60 * 60 * 24 * 7; // 1 week
-static const NSInteger kDefaultCacheMaxCacheSize = 5 * 1024 * 1024;
+static const NSUInteger kDefaultCacheMaxCacheAge = 60 * 60 * 24 * 7; // 1 week
+static const NSUInteger kDefaultCacheMaxCacheSize = 5 * 1024 * 1024;
 
 @interface FDWebImagePrefetcher()
 @property (nonatomic, strong) SDWebImagePrefetcher *webImagePrefetcher;
@@ -74,14 +74,14 @@ static const NSInteger kDefaultCacheMaxCacheSize = 5 * 1024 * 1024;
     return images;
 }
 
-- (void)setCacheAge:(NSInteger)cacheAge {
+- (void)setCacheAge:(NSUInteger)cacheAge {
     if (_cacheAge != cacheAge) {
         _cacheAge = cacheAge;
         _imageCache.config.maxCacheAge = _cacheAge;
     }
 }
 
-- (void)setCacheSize:(NSInteger)cacheSize {
+- (void)setCacheSize:(NSUInteger)cacheSize {
     if (_cacheSize != cacheSize) {
         _cacheSize = cacheSize;
         _imageCache.config.maxCacheSize = _cacheSize;

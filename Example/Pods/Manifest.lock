@@ -22,13 +22,11 @@ PODS:
   - CocoaLumberjack/Extensions (3.4.2):
     - CocoaLumberjack/Default
   - FDKit (0.1.0):
-    - FDKit/Base (= 0.1.0)
     - FDKit/Category (= 0.1.0)
     - FDKit/CustomUI (= 0.1.0)
     - FDKit/Debug (= 0.1.0)
+    - FDKit/Inherited (= 0.1.0)
     - FDKit/Utility (= 0.1.0)
-  - FDKit/Base (0.1.0):
-    - FDKit/Category
   - FDKit/Category (0.1.0):
     - FDKit/Category/NoArc (= 0.1.0)
   - FDKit/Category/NoArc (0.1.0)
@@ -45,6 +43,7 @@ PODS:
   - FDKit/Debug/DebugObserver (0.1.0)
   - FDKit/Debug/HitTestInspect (0.1.0):
     - Aspects
+  - FDKit/Inherited (0.1.0):
     - FDKit/Category
   - FDKit/Utility (0.1.0):
     - FDKit/Utility/AntiDebug (= 0.1.0)
@@ -66,6 +65,7 @@ PODS:
   - FDKit/Utility/BootingProtection (0.1.0)
   - FDKit/Utility/Confuse (0.1.0)
   - FDKit/Utility/Crash (0.1.0):
+    - FDKit/Utility/Log
     - KSCrash
   - FDKit/Utility/FMDB (0.1.0):
     - FMDB
@@ -84,6 +84,7 @@ PODS:
   - FDKit/Utility/SKUDataFilter (0.1.0)
   - FDKit/Utility/ThreadSafeMutableArray (0.1.0)
   - FDKit/Utility/WebImagePrefetcher (0.1.0):
+    - FDKit/Category
     - SDWebImage
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
@@ -157,7 +158,6 @@ PODS:
   - YYCache (1.0.4)
 
 DEPENDENCIES:
-  - Aspects
   - FDKit (from `../`)
 
 SPEC REPOS:
@@ -178,12 +178,12 @@ SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
   CocoaLumberjack: db7cc9e464771f12054c22ff6947c5a58d43a0fd
-  FDKit: 10e12833b520ff0c3d47e6a8fa8ac17dc084878c
+  FDKit: 59a1792049016875678779a4d5c2fd0706026cc7
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   KSCrash: 5394936f41e5c1ef7b79cf79b30d53299b0c160e
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: ef91ab53ffa966caab13dad726bd31c2757928b5
+PODFILE CHECKSUM: c2bfc70a4d67960274688d177aed9d3a187161a5
 
 COCOAPODS: 1.5.3

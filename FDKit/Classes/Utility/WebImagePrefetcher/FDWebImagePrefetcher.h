@@ -9,12 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "SDWebImagePrefetcher.h"
 
+
 NS_ASSUME_NONNULL_BEGIN
 
 //利用SDWebImage自定义一个图片下载工具，可以自定义下载路径，图片key，缓存策略等。
 @interface FDWebImagePrefetcher : NSObject
-@property (nonatomic, assign) NSInteger cacheAge;
-@property (nonatomic, assign) NSInteger cacheSize;
+@property (nonatomic, assign) NSUInteger cacheAge;
+@property (nonatomic, assign) NSUInteger cacheSize;
 - (instancetype)initWithCacheDirectory:(NSString *)cacheDirectory;
 //子线程执行，不会阻塞主线程
 - (void)prefetchURLs:(nullable NSArray<NSURL *> *)urls;

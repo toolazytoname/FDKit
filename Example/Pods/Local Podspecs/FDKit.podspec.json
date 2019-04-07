@@ -1,8 +1,8 @@
 {
   "name": "FDKit",
   "version": "0.1.0",
-  "summary": "A short description of FDKit.",
-  "description": "TODO: Add long description of the pod here.",
+  "summary": "My personal SwissArmyKnife",
+  "description": "My personal SwissArmyKnife.",
   "homepage": "https://github.com/toolazytoname/FDKit",
   "license": {
     "type": "MIT",
@@ -39,8 +39,8 @@
       ]
     },
     {
-      "name": "Base",
-      "source_files": "FDKit/Classes/Base/**/*.{h,m}",
+      "name": "Inherited",
+      "source_files": "FDKit/Classes/Inherited/**/*.{h,m}",
       "dependencies": {
         "FDKit/Category": [
 
@@ -76,9 +76,6 @@
           "source_files": "FDKit/Classes/Debug/HitTestInspect/**/*.{h,m}",
           "dependencies": {
             "Aspects": [
-
-            ],
-            "FDKit/Category": [
 
             ]
           }
@@ -136,7 +133,7 @@
         },
         {
           "name": "LocationCoordinate",
-          "source_files": "FDKit/Classes/LocationCoordinate/GuideView/*.{h,m}"
+          "source_files": "FDKit/Classes/Utility/LocationCoordinate/*.{h,m}"
         },
         {
           "name": "PerformanceMonitor",
@@ -156,6 +153,9 @@
           "dependencies": {
             "SDWebImage": [
 
+            ],
+            "FDKit/Category": [
+
             ]
           }
         },
@@ -173,6 +173,9 @@
           "source_files": "FDKit/Classes/Utility/Crash/*.{h,m}",
           "dependencies": {
             "KSCrash": [
+
+            ],
+            "FDKit/Utility/Log": [
 
             ]
           }

@@ -252,6 +252,9 @@
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = toolazytoname;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = FFG247C77Q;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -531,6 +534,7 @@
 			baseConfigurationReference = 24F3E4CCD9F34C871FA57D30 /* Pods-FDKit_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FFG247C77Q;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FDKit/FDKit-Prefix.pch";
 				INFOPLIST_FILE = "FDKit/FDKit-Info.plist";
@@ -546,6 +550,7 @@
 			baseConfigurationReference = A37CDDF2BA78097898C96893 /* Pods-FDKit_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FFG247C77Q;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FDKit/FDKit-Prefix.pch";
 				INFOPLIST_FILE = "FDKit/FDKit-Info.plist";

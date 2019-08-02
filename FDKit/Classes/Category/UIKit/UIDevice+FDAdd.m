@@ -330,6 +330,15 @@ static yy_net_interface_counter yy_get_net_interface_counter() {
             @"iPad6,4" : @"iPad Pro (9.7 inch)",
             @"iPad6,7" : @"iPad Pro (12.9 inch)",
             @"iPad6,8" : @"iPad Pro (12.9 inch)",
+            @"iPad6,11": @"iPad 5";
+            @"iPad6,12": @"iPad 5";
+            @"iPad7,1" : @"iPad Pro 12.9-inch 2G";
+            @"iPad7,2" : @"iPad Pro 12.9-inch 2G";
+            @"iPad7,3" : @"iPad Pro 10.5-inch";
+            @"iPad7,4" : @"iPad Pro 10.5-inch";
+            @"iPad7,5" : @"iPad (6th generation)";
+            @"iPad7,6" : @"iPad (6th generation)";
+
             
             @"AppleTV2,1" : @"Apple TV 2",
             @"AppleTV3,1" : @"Apple TV 3",

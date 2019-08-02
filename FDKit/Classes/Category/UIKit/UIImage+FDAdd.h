@@ -246,7 +246,7 @@ typedef NS_ENUM(NSInteger,FDGradientDirectionType) {
 
 /**
  Returns a new image which is scaled from this image.
- The image content will be changed with thencontentMode.
+ The image content will be changed with the contentMode.
  
  @param size        The new size to be scaled, values should be positive.
  
@@ -256,6 +256,21 @@ typedef NS_ENUM(NSInteger,FDGradientDirectionType) {
  */
 - (nullable UIImage *)fd_imageByResizeToSize:(CGSize)size contentMode:(UIViewContentMode)contentMode;
 
+/**
+ Returns a new image which is scaled from this image.
+ The image content will be changed with the contentMode.
+ 
+ @param size        The new size to be scaled, values should be positive.
+ 
+ @param contentMode The content mode for image content.
+ 
+ @param color The background color for image.
+ 
+ @return The new image with the given size.
+ */
+- (nullable UIImage *)fd_imageByResizeToSize:(CGSize)size
+                        contentMode:(UIViewContentMode)contentMode
+                    backgroundColor:(UIColor *)color;
 /**
  Returns a new image which is cropped from this image.
  

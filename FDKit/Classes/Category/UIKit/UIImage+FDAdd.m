@@ -447,6 +447,23 @@ static NSTimeInterval _yy_CGImageSourceGetGIFFrameDelayAtIndex(CGImageSourceRef 
     return image;
 }
 
+- (UIImage *)fd_imageByResizeToSize:(CGSize)size
+                        contentMode:(UIViewContentMode)contentMode
+                    backgroundColor:(UIColor *)color {
+    if (size.width <= 0 || size.height <= 0) return nil;
+    UIGraphicsBeginImageContextWithOptions(size, NO, self.scale);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    if (color) {
+        CGContextSetFillColorWithColor(context, color.CGColor);
+        CGContextFillRect(context, CGRectMake(0, 0, size.width, size.height));
+    }
+    [self fd_drawInRect:CGRectMake(0, 0, size.width, size.height) withContentMode:contentMode clipsToBounds:NO];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
+
 - (UIImage *)fd_imageByCropToRect:(CGRect)rect {
     rect.origin.x *= self.scale;
     rect.origin.y *= self.scale;

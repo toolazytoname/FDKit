@@ -101,7 +101,7 @@ FDSYNTH_DUMMY_CLASS(UIView_FDAdd)
     return alpha;
 }
 
-- (NSString *)fd_brotherTextFieldValue {
+- (NSString *)fd_siblingTextFieldValue {
     __block NSString *textValue;
 //    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
     [self.superview.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -114,7 +114,7 @@ FDSYNTH_DUMMY_CLASS(UIView_FDAdd)
     return textValue;
 }
 
-- (void)fd_brotherViewsHidden {
+- (void)fd_siblingViewsHidden {
     [self.superview.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([obj isKindOfClass:UIView.class] && obj != self) {
             obj.hidden = YES;
@@ -122,32 +122,22 @@ FDSYNTH_DUMMY_CLASS(UIView_FDAdd)
     }];
 }
 
-- (void)fd_addSubViewFromBottom:(UIView *)subView {
-    dispatch_sync_on_main_queue(^{
-        UIColor *originalColor = subView.backgroundColor;
-        subView.backgroundColor = [UIColor clearColor];
-        
-        __block NSMutableArray *animatedViewOriginalHeightArray = [[NSMutableArray alloc] init];
-        if([subView respondsToSelector:@selector(animatedViews)]) {
-            NSArray *animatedViews = [subView performSelector:@selector(animatedViews) withObject:nil];
-            [animatedViews enumerateObjectsUsingBlock:^(UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                [animatedViewOriginalHeightArray fd_appendObject:@(obj.fd_height)];
-                obj.fd_height = 0;
-            }];
-        }
-        [self addSubview:subView];
-        
-        [UIView animateWithDuration:0.25 animations:^{
-            subView.backgroundColor = originalColor;
-            if([subView respondsToSelector:@selector(animatedViews)]) {
-                NSArray *animatedViews = [subView performSelector:@selector(animatedViews) withObject:nil];
-                [animatedViews enumerateObjectsUsingBlock:^(UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                    obj.fd_height = [[animatedViewOriginalHeightArray fd_objectOrNilAtIndex:idx] floatValue];
-                }];
-            }
-        } completion:^(BOOL finished) {
-        }];
-    });
+- (void)fd_addRoundedCornersAbsoulute:(UIRectCorner)corners
+                            withRadii:(CGSize)radii {
+    UIBezierPath* rounded = [UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:corners cornerRadii:radii];
+    CAShapeLayer* shape = [[CAShapeLayer alloc] init];
+    [shape setPath:rounded.CGPath];
+    self.layer.mask = shape;
+}
+
+- (void)fd_addRoundedCornersRelative:(UIRectCorner)corners
+                            withRadii:(CGSize)radii
+                             viewRect:(CGRect)rect {
+//一般都用使用Monsary布局,所以使用这个方法,因为当你进行相对布局的时候系统是不确定你的rect的,所以需要从外部传入
+    UIBezierPath* rounded = [UIBezierPath bezierPathWithRoundedRect:rect byRoundingCorners:corners cornerRadii:radii];
+    CAShapeLayer* shape = [[CAShapeLayer alloc] init];
+    [shape setPath:rounded.CGPath];
+    self.layer.mask = shape;
 }
 
 - (CGPoint)fd_convertPoint:(CGPoint)point toViewOrWindow:(UIView *)view {

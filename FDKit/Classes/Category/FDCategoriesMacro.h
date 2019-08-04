@@ -52,6 +52,23 @@ FD_EXTERN_C_BEGIN
  -all_load or -force_load to load object files from static libraries that only
  contain categories and no classes.
  More info: http://developer.apple.com/library/mac/#qa/qa2006/qa1490.html .
+ 这个宏定义的功能上面已经讲得很清楚了。在每个类别实现之前添加这个宏，这样我们就不必使用-all_load或-force_load来从只包含类别而不包含类的静态库加载对象文件。
+ 
+ 在用第三方库、类或者静态库时，我们常常在Xcode的Build Settings下Other Linker Flags里面加入-ObjC标志。
+ 
+ 原因：
+ 
+ Unix的标准静态库实现和Objective-C的动态特性之间有一些冲突：Objective-C没有为每个函数（或者方法）定义链接符号，它只为每个类创建链接符号。这样当在一个静态库中使用类别来扩展已有类的时候，链接器不知道如何把类原有的方法和类别中的方法整合起来，就会导致你调用类别中的方法时，出现"selector not recognized"，也就是找不到方法定义的错误。为了解决这个问题，引入了-ObjC标志，它的作用就是将静态库中所有的和对象相关的文件都加载进来。
+ 
+ 不要以为这样就可以解决所有问题了，在64位的Mac系统或者iOS系统下，链接器有一个bug，会导致只包含有类别的静态库无法使用-ObjC标志来加载文件。变通方法是使用-all_load 或者-force_load标志，它们的作用都是加载静态库中所有文件，不过all_load作用于所有的库，而-force_load后面必须要指定具体的文件他们加载的位置也是在Xcode的Build Settings下Other Linker Flags里面。
+ 
+ 所以一般加了这两个的都是存在一些扩展类。
+ 
+ 只要加入了这个宏定义我们就不需要在添加这两个方法了。
+ 
+ 宏中"#"和"##"的用法
+ 我们使用#把宏参数变为一个字符串,用##把两个宏参数贴合在一起.
+
  *******************************************************************************
  Example:
      FDSYNTH_DUMMY_CLASS(NSString_FDAdd)

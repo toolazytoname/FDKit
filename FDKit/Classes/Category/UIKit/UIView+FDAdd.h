@@ -73,7 +73,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param radii   需要设置的圆角大小 例如 CGSizeMake(20.0f, 20.0f)
  */
 - (void)fd_addRoundedCornersAbsoulute:(UIRectCorner)corners
-                            withRadii:(CGSize)radii;
+                                radii:(CGSize)radii;
 /**
  *  设置部分圆角(相对布局)
  *
@@ -82,7 +82,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param rect    需要设置的圆角view的rect
  */
 - (void)fd_addRoundedCornersRelative:(UIRectCorner)corners
-                           withRadii:(CGSize)radii
+                               radii:(CGSize)radii
                             viewRect:(CGRect)rect;
 
 

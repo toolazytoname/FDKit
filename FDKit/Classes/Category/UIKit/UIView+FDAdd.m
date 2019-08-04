@@ -123,7 +123,7 @@ FDSYNTH_DUMMY_CLASS(UIView_FDAdd)
 }
 
 - (void)fd_addRoundedCornersAbsoulute:(UIRectCorner)corners
-                            withRadii:(CGSize)radii {
+                            radii:(CGSize)radii {
     UIBezierPath* rounded = [UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:corners cornerRadii:radii];
     CAShapeLayer* shape = [[CAShapeLayer alloc] init];
     [shape setPath:rounded.CGPath];
@@ -131,7 +131,7 @@ FDSYNTH_DUMMY_CLASS(UIView_FDAdd)
 }
 
 - (void)fd_addRoundedCornersRelative:(UIRectCorner)corners
-                            withRadii:(CGSize)radii
+                               radii:(CGSize)radii
                              viewRect:(CGRect)rect {
 //一般都用使用Monsary布局,所以使用这个方法,因为当你进行相对布局的时候系统是不确定你的rect的,所以需要从外部传入
     UIBezierPath* rounded = [UIBezierPath bezierPathWithRoundedRect:rect byRoundingCorners:corners cornerRadii:radii];
@@ -147,7 +147,7 @@ FDSYNTH_DUMMY_CLASS(UIView_FDAdd)
          cornerRadii:(CGSize)cornerRadii
           cornerRect:(CGRect)cornerRect {
 //如果在同一个layer上实现两个效果，把masksToBounds开了，阴影无法显示，关了的话其上的View又会遮住圆角。解决的方式只能是再加一层layer。
-    cornerRect = CGRectEqualToRect(cornerRect,CGRectZero)?self.bounds:cornerRect;
+    cornerRect = CGRectIsEmpty(cornerRect)?self.bounds:cornerRect;
     [self fd_addRoundedCornersRelative:cornerRect withRadii:cornerRadii viewRect:cornerRect];
     CALayer *shadowLayer = [CALayer layer];
     shadowLayer.frame = self.layer.frame;

@@ -84,6 +84,24 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)fd_addRoundedCornersRelative:(UIRectCorner)corners
                            withRadii:(CGSize)radii
                             viewRect:(CGRect)rect;
+
+
+/**
+ 同时设置圆角和阴影,地下会新增一个阴影layer
+
+ @param shadowColor shadowColor description
+ @param shadowOffset shadowOffset description
+ @param shadowRadius shadowRadius description
+ @param corners 需要设置为圆角的角 UIRectCornerTopLeft | UIRectCornerTopRight | UIRectCornerBottomLeft | UIRectCornerBottomRight | UIRectCornerAllCorners
+ @param cornerRadii 需要设置的圆角大小 例如 CGSizeMake(20.0f, 20.0f)
+ @param cornerRect 需要设置的圆角view的rect
+ */
+- (void)fd_addShadow:(nullable UIColor*)shadowColor
+        shadowOffset:(CGSize)shadowOffset
+        shadowRadius:(CGFloat)shadowRadius
+      roundedCorners:(UIRectCorner)corners
+         cornerRadii:(CGSize)cornerRadii
+          cornerRect:(CGRect)cornerRect;
 /**
  Converts a point from the receiver's coordinate system to that of the specified view or window.
  
@@ -135,6 +153,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) CGPoint fd_origin;      ///< Shortcut for frame.origin.
 @property (nonatomic) CGSize  fd_size;        ///< Shortcut for frame.size.
 
+@property (nonatomic) IBInspectable CGFloat fd_LayerCornerRadius;         ///< Shortcut for layer.cornerRadius
 @end
 
 NS_ASSUME_NONNULL_END

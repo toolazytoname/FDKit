@@ -140,6 +140,30 @@ FDSYNTH_DUMMY_CLASS(UIView_FDAdd)
     self.layer.mask = shape;
 }
 
+- (void)fd_addShadow:(nullable UIColor*)shadowColor
+        shadowOffset:(CGSize)shadowOffset
+        shadowRadius:(CGFloat)shadowRadius
+      roundedCorners:(UIRectCorner)corners
+         cornerRadii:(CGSize)cornerRadii
+          cornerRect:(CGRect)cornerRect {
+//如果在同一个layer上实现两个效果，把masksToBounds开了，阴影无法显示，关了的话其上的View又会遮住圆角。解决的方式只能是再加一层layer。
+    cornerRect = CGRectEqualToRect(cornerRect,CGRectZero)?self.bounds:cornerRect;
+    [self fd_addRoundedCornersRelative:cornerRect withRadii:cornerRadii viewRect:cornerRect];
+    CALayer *shadowLayer = [CALayer layer];
+    shadowLayer.frame = self.layer.frame;
+    
+    shadowLayer.shadowColor = color.CGColor;
+    shadowLayer.shadowOffset = offset;
+    shadowLayer.shadowRadius = radius;
+    shadowLayer.shadowOpacity = 1;
+    shadowLayer.shouldRasterize = YES;
+    shadowLayer.rasterizationScale = [UIScreen mainScreen].scale;
+    shadowLayer.masksToBounds = NO;
+    
+    [self.layer.superlayer insertSublayer:shadowLayer below:self.layer];
+}
+
+
 - (CGPoint)fd_convertPoint:(CGPoint)point toViewOrWindow:(UIView *)view {
     if (!view) {
         if ([self isKindOfClass:[UIWindow class]]) {
@@ -309,4 +333,11 @@ FDSYNTH_DUMMY_CLASS(UIView_FDAdd)
     self.frame = frame;
 }
 
+- (CGFloat)fd_LayerCornerRadius {
+    return self.layer.cornerRadius;
+}
+
+- (void)setFd_LayerCornerRadius:(CGFloat)cornerRadius {
+    self.layer.cornerRadius = cornerRadius;
+}
 @end

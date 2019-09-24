@@ -145,8 +145,6 @@ public:
 };
 
 @implementation FDIsInitialDump
-
-
 + (NSArray<NSString *> *)dumpAllRuntimeRegisteredClasses {
     NSMutableArray *allRuntimeRegisteredArray = [[NSMutableArray alloc] init];
     int numClasses;
@@ -173,6 +171,9 @@ public:
 }
 
 + (NSArray<NSString *> *)dumpInitializedClassesInArray:(NSArray<NSString *> *)classArray {
+    if (!classArray || classArray.count == 0) {
+        return nil;
+    }
     NSMutableArray *initializedArray = [[NSMutableArray alloc] init];
     [classArray enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         Class cls = NSClassFromString(obj);
@@ -191,6 +192,9 @@ public:
 }
 
 + (NSArray<NSString *> *)dumpNotInitializedClassesInArray:(NSArray<NSString *> *)classArray {
+    if (!classArray || classArray.count == 0) {
+        return nil;
+    }
     NSMutableArray *initializedArray = [[NSMutableArray alloc] init];
     [classArray enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         Class cls = NSClassFromString(obj);

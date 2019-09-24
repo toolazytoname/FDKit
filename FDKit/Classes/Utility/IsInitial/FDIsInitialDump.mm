@@ -125,12 +125,12 @@ public:
 };
 
 /* OC对象 */
-struct fake_objc_object {
+struct lazyFake_objc_object {
     void *isa;
 };
 
 /* 类对象 */
-struct fake_objc_class : fake_objc_object {
+struct lazyFake_objc_class : lazyFake_objc_object {
     Class superclass;
     cache_t cache;
     class_data_bits_t bits;
@@ -139,9 +139,9 @@ public:
         return bits.data();
     }
     
-    fake_objc_class* metaClass() { // 提供metaClass函数，获取元类对象
+    lazyFake_objc_class* metaClass() { // 提供metaClass函数，获取元类对象
         // 上一篇我们讲解过，isa指针需要经过一次 & ISA_MASK操作之后才得到真正的地址
-        return (fake_objc_class *)((long long)isa & ISA_MASK);
+        return (lazyFake_objc_class *)((long long)isa & ISA_MASK);
     }
     bool isInitialized() {
         return metaClass()->data()->flags & RW_INITIALIZED;
@@ -182,7 +182,7 @@ public:
     NSMutableArray *initializedArray = [[NSMutableArray alloc] init];
     [classArray enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         Class cls = NSClassFromString(obj);
-        struct fake_objc_class *objectClass = (__bridge struct fake_objc_class *)cls;
+        struct lazyFake_objc_class *objectClass = (__bridge struct lazyFake_objc_class *)cls;
         BOOL isInitial = objectClass->isInitialized();
         if (isInitial) {
             [initializedArray addObject:obj];
@@ -203,7 +203,7 @@ public:
     NSMutableArray *initializedArray = [[NSMutableArray alloc] init];
     [classArray enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         Class cls = NSClassFromString(obj);
-        struct fake_objc_class *objectClass = (__bridge struct fake_objc_class *)cls;
+        struct lazyFake_objc_class *objectClass = (__bridge struct lazyFake_objc_class *)cls;
         BOOL isInitial = objectClass->isInitialized();
         if (!isInitial) {
             [initializedArray addObject:obj];

@@ -148,13 +148,13 @@ FDSYNTH_DUMMY_CLASS(UIView_FDAdd)
           cornerRect:(CGRect)cornerRect {
 //如果在同一个layer上实现两个效果，把masksToBounds开了，阴影无法显示，关了的话其上的View又会遮住圆角。解决的方式只能是再加一层layer。
     cornerRect = CGRectIsEmpty(cornerRect)?self.bounds:cornerRect;
-    [self fd_addRoundedCornersRelative:cornerRect withRadii:cornerRadii viewRect:cornerRect];
+    [self fd_addRoundedCornersRelative:corners radii:cornerRadii viewRect:cornerRect];
     CALayer *shadowLayer = [CALayer layer];
     shadowLayer.frame = self.layer.frame;
     
-    shadowLayer.shadowColor = color.CGColor;
-    shadowLayer.shadowOffset = offset;
-    shadowLayer.shadowRadius = radius;
+    shadowLayer.shadowColor = shadowColor.CGColor;
+    shadowLayer.shadowOffset = shadowOffset;
+    shadowLayer.shadowRadius = shadowRadius;
     shadowLayer.shadowOpacity = 1;
     shadowLayer.shouldRasterize = YES;
     shadowLayer.rasterizationScale = [UIScreen mainScreen].scale;

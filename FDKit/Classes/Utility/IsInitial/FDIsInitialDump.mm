@@ -6,6 +6,7 @@
 //
 
 #import "FDIsInitialDump.h"
+#import <objc/runtime.h>
 #import <Foundation/Foundation.h>
 
 #define RW_INITIALIZED        (1<<29)
@@ -119,12 +120,12 @@ public:
 };
 
 /* OC对象 */
-struct xx_objc_object {
+struct fake_objc_object {
     void *isa;
 };
 
 /* 类对象 */
-struct xx_objc_class : xx_objc_object {
+struct fake_objc_class : fake_objc_object {
     Class superclass;
     cache_t cache;
     class_data_bits_t bits;
@@ -133,9 +134,9 @@ public:
         return bits.data();
     }
     
-    xx_objc_class* metaClass() { // 提供metaClass函数，获取元类对象
+    fake_objc_class* metaClass() { // 提供metaClass函数，获取元类对象
         // 上一篇我们讲解过，isa指针需要经过一次 & ISA_MASK操作之后才得到真正的地址
-        return (xx_objc_class *)((long long)isa & ISA_MASK);
+        return (fake_objc_class *)((long long)isa & ISA_MASK);
     }
     bool isInitialized() {
         return metaClass()->data()->flags & RW_INITIALIZED;
@@ -144,35 +145,61 @@ public:
 };
 
 @implementation FDIsInitialDump
-+ (NSArray *)dumpInitialedArray{
+
+
++ (NSArray<NSString *> *)dumpAllRuntimeRegisteredClasses {
+    NSMutableArray *allRuntimeRegisteredArray = [[NSMutableArray alloc] init];
     int numClasses;
     Class *classes = NULL ;
-    
     classes = NULL ;
     numClasses = objc_getClassList ( NULL , 0 );
-    NSLog ( @"[lazyDebug] Number of classes: %d" , numClasses);
-    
-    if (numClasses > 0 )
-    {
+//    NSLog ( @"[lazyDebug] Number of classes: %d" , numClasses);
+    if (numClasses > 0 ) {
         classes = ( __unsafe_unretained Class *) malloc ( sizeof (Class) * numClasses);
         numClasses = objc_getClassList (classes, numClasses);
         for ( int i = 0 ; i < numClasses; i++) {
             Class cls = classes[i];
-            struct xx_objc_class *objectClass = (__bridge struct xx_objc_class *)cls;
-            BOOL isInitial = objectClass->isInitialized();
-            
-            if (!isInitial) {
-                NSLog ( @"[lazyDebug]unused Class name: %s isInitial:%ld" , class_getName (cls),isInitial);
-            }
-            else{
-                NSLog ( @"[lazyDebug]used   Class name: %s isInitial:%ld" , class_getName (cls),isInitial);
-                
-            }
-            
+            NSString *classNameString = NSStringFromClass(cls);
+            [allRuntimeRegisteredArray addObject:classNameString];
         }
         free (classes);
     }
-    
+    return [allRuntimeRegisteredArray copy];
+}
 
++ (NSArray<NSString *> *)dumpInitializedClassesInRuntime {
+    NSArray *allRuntimeRegisteredClasses = [self dumpAllRuntimeRegisteredClasses];
+    return [self dumpInitializedClassesInArray:allRuntimeRegisteredClasses];
+}
+
++ (NSArray<NSString *> *)dumpInitializedClassesInArray:(NSArray<NSString *> *)classArray {
+    NSMutableArray *initializedArray = [[NSMutableArray alloc] init];
+    [classArray enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        Class cls = NSClassFromString(obj);
+        struct fake_objc_class *objectClass = (__bridge struct fake_objc_class *)cls;
+        BOOL isInitial = objectClass->isInitialized();
+        if (isInitial) {
+            [initializedArray addObject:obj];
+        }
+    }];
+    return initializedArray;
+}
+
++ (NSArray<NSString *> *)dumpNotInitializedClassesInRuntime {
+    NSArray *allRuntimeRegisteredClasses = [self dumpAllRuntimeRegisteredClasses];
+    return [self dumpNotInitializedClassesInArray:allRuntimeRegisteredClasses];
+}
+
++ (NSArray<NSString *> *)dumpNotInitializedClassesInArray:(NSArray<NSString *> *)classArray {
+    NSMutableArray *initializedArray = [[NSMutableArray alloc] init];
+    [classArray enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        Class cls = NSClassFromString(obj);
+        struct fake_objc_class *objectClass = (__bridge struct fake_objc_class *)cls;
+        BOOL isInitial = objectClass->isInitialized();
+        if (!isInitial) {
+            [initializedArray addObject:obj];
+        }
+    }];
+    return initializedArray;
 }
 @end

@@ -9,6 +9,11 @@
 #import <objc/runtime.h>
 #import <Foundation/Foundation.h>
 
+
+//参考自 https://www.jianshu.com/p/74db5638f34f
+//我们可以自定义一个结构体，如果我们自己写的结构和objc_class真实结构是一样的，那么当我们强制转化的时候，就会一一对应的赋值。此时我们就可以拿到结构体内部的信息。
+//
+//下列代码是我们仿照objc_class结构体，提取其中需要使用到的信息，自定义的一个结构体。
 #define RW_INITIALIZED        (1<<29)
 # if __arm64__
 #   define ISA_MASK        0x0000000ffffffff8ULL

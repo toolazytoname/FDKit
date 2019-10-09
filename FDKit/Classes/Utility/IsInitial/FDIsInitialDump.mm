@@ -139,14 +139,13 @@ public:
         return bits.data();
     }
     
-    lazyFake_objc_class* metaClass() { // 提供metaClass函数，获取元类对象
-        // 上一篇我们讲解过，isa指针需要经过一次 & ISA_MASK操作之后才得到真正的地址
+    lazyFake_objc_class* metaClass() { //提供metaClass函数，获取元类对象
+        //isa指针需要经过一次 &ISA_MASK操作之后才得到真正的地址
         return (lazyFake_objc_class *)((long long)isa & ISA_MASK);
     }
     bool isInitialized() {
         return metaClass()->data()->flags & RW_INITIALIZED;
     }
-    
 };
 
 @implementation FDIsInitialDump

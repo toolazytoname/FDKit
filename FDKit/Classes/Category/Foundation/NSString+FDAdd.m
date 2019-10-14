@@ -482,4 +482,23 @@ FDSYNTH_DUMMY_CLASS(NSString_FDAdd)
 ////    NSString *randomNumber = [NSString stringWithFormat:@"%.zd",length , num];
 //    return randomNumber;
 //}
+
++ (void)sizOfTypes{
+    NSLog(@"sizeof(short):%li",sizeof(short));
+    NSLog(@"sizeof(int):%li",sizeof(int));
+    NSLog(@"sizeof(float):%li",sizeof(float));
+    NSLog(@"sizeof(double):%li",sizeof(double));
+    NSLog(@"sizeof(long double):%li",sizeof(long double));
+    NSLog(@"sizeof(long):%li",sizeof(long));
+    NSLog(@"sizeof(long long):%li",sizeof(long long));
+    //2019-10-11 14:57:17.024697+0800 TestImageView[661:633656] sizeof(short):2
+    //2019-10-11 14:57:17.024765+0800 TestImageView[661:633656] sizeof(int):4
+    //2019-10-11 14:57:17.024789+0800 TestImageView[661:633656] sizeof(float):4
+    //2019-10-11 14:57:17.024808+0800 TestImageView[661:633656] sizeof(double):8
+    //2019-10-11 14:57:17.024830+0800 TestImageView[661:633656] sizeof(long double):8
+    //2019-10-11 14:57:17.024851+0800 TestImageView[661:633656] sizeof(long):8
+    //2019-10-11 14:57:17.024871+0800 TestImageView[661:633656] sizeof(long long):8
+    
+}
+
 @end

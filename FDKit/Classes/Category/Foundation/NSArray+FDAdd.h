@@ -215,12 +215,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)fd_removeEmptyStringObjects;
 
 
-/**
- remove objetcs in array index>=integer
 
- @param integer New array count
- */
-- (void)fd_trimWithCount:(NSUInteger)integer;
+- (void)fd_KVO_prependObject:(id)anObject;
+
+
+
+
 
 
 @end

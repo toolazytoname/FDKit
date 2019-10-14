@@ -318,6 +318,16 @@ typedef NS_ENUM(NSInteger,FDGradientDirectionType) {
                                    borderColor:(nullable UIColor *)borderColor;
 
 /**
+ *  设置部分圆角(相对布局)
+ *
+ *  @param corners 需要设置为圆角的角 UIRectCornerTopLeft | UIRectCornerTopRight | UIRectCornerBottomLeft | UIRectCornerBottomRight | UIRectCornerAllCorners
+ *  @param radii   需要设置的圆角大小 例如 CGSizeMake(20.0f, 20.0f)
+ *  http://lemon2well.top/2018/08/29/iOS%20%E5%BC%80%E5%8F%91/iOS%E4%B8%AD%E7%9A%84%E5%9C%86%E8%A7%92%E5%A4%84%E7%90%86%EF%BC%88%E7%BB%88%E7%BB%93%E7%AF%87%EF%BC%89/
+ */
+- (void)fd_addRoundedCorners:(UIRectCorner)corners
+                       radii:(CGSize)radii;
+                    
+/**
  Rounds a new image with a given corner size.
  
  @param radius       The radius of each corner oval. Values larger than half the

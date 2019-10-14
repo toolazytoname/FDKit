@@ -21,13 +21,11 @@
   "subspecs": [
     {
       "name": "Category",
-      "requires_arc": true,
-      "source_files": "FDKit/Classes/Category/**/*.{h,m}",
-      "exclude_files": [
-        "FDKit/Classes/Category/NoArc/NSObject+FDAddForARC.{h,m}",
-        "FDKit/Classes/Category/NoArc/NSThread+FDAdd.{h,m}"
-      ],
       "subspecs": [
+        {
+          "name": "Macro",
+          "source_files": "FDKit/Classes/Category/FDCategoriesMacro.h"
+        },
         {
           "name": "NoArc",
           "source_files": [
@@ -35,6 +33,18 @@
             "FDKit/Classes/Category/NoArc/NSThread+FDAdd.{h,m}"
           ],
           "requires_arc": false
+        },
+        {
+          "name": "Foundation",
+          "source_files": "FDKit/Classes/Category/Foundation/*.{h,m}"
+        },
+        {
+          "name": "Quartz",
+          "source_files": "FDKit/Classes/Category/Quartz/*.{h,m}"
+        },
+        {
+          "name": "UIKit",
+          "source_files": "FDKit/Classes/Category/UIKit/*.{h,m}"
         }
       ]
     },
@@ -42,7 +52,10 @@
       "name": "Inherited",
       "source_files": "FDKit/Classes/Inherited/**/*.{h,m}",
       "dependencies": {
-        "FDKit/Category": [
+        "FDKit/Category/Macro": [
+
+        ],
+        "FDKit/Category/Foundation": [
 
         ]
       }
@@ -163,7 +176,7 @@
           "name": "Opereation",
           "source_files": "FDKit/Classes/Utility/Opereation/*.{h,m}",
           "dependencies": {
-            "FDKit/Category": [
+            "FDKit/Category/Foundation": [
 
             ]
           }

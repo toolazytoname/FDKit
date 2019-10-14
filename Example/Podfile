@@ -33,6 +33,10 @@ target 'FDKit_Example' do
   
   target 'FDKit_Tests' do
     inherit! :search_paths
+    pod 'DoraemonKit/Core', '~> 1.1.9', :configurations => ['Debug']
+    pod 'DoraemonKit/WithLogger', '~> 1.1.9', :configurations => ['Debug']
+    pod 'DoraemonKit/WithGPS', '~> 1.1.9', :configurations => ['Debug']
+    pod 'DoraemonKit/WithLoad', '~> 1.1.9', :configurations => ['Debug']
 
     
   end

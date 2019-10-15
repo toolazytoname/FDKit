@@ -468,7 +468,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)fd_timeStampWithDate:(NSDate *)date;
 
 //+ (NSString *)fd_randomWithLength:(NSUInteger)length;
-+ (void)sizOfTypes;
+
+//+ (void)sizOfTypes;
 @end
 
 NS_ASSUME_NONNULL_END

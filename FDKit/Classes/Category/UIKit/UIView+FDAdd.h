@@ -86,6 +86,27 @@ NS_ASSUME_NONNULL_BEGIN
                             viewRect:(CGRect)rect;
 
 
+
+/// 新写的API
+/// @param radii 半径
+- (void)fd_addRoundedCornersWithRadii:(float)radii;
+
+- (void)fd_addRoundedCornersRelativeWithRadii:(float)radii
+                                     viewRect:(CGRect)rect;
+
+//UIView *testView = [[UIView alloc] initWithFrame:CGRectMake(30, 30, 100, 120)];
+//testView.backgroundColor = [UIColor purpleColor];
+//[testView fd_addRoundedCornersRelativeWithRoundedRect:testView.bounds topLeftCornerRadius:10 topRightCornerRadius:20 bottomLeftCornerRadius:30 bottomRightCornerRadius:40 backgroundColor:testView.backgroundColor borderWidth:5   borderColor:[UIColor greenColor]];
+- (void)fd_addRoundedCornersRelativeWithRoundedRect:(CGRect)rect
+                                topLeftCornerRadius:(CGFloat)topLeftCornerRadius
+                               topRightCornerRadius:(CGFloat)topRightCornerRadius
+                             bottomLeftCornerRadius:(CGFloat)bottomLeftCornerRadius
+                            bottomRightCornerRadius:(CGFloat)bottomRightCornerRadius
+                                    backgroundColor:(nullable UIColor *)backgroundColor
+                                        borderWidth:(CGFloat)borderWidth
+                                        borderColor:(nullable UIColor *)borderColor;
+
+
 /**
  同时设置圆角和阴影,地下会新增一个阴影layer
 
@@ -93,14 +114,14 @@ NS_ASSUME_NONNULL_BEGIN
  @param shadowOffset shadowOffset description
  @param shadowRadius shadowRadius description
  @param corners 需要设置为圆角的角 UIRectCornerTopLeft | UIRectCornerTopRight | UIRectCornerBottomLeft | UIRectCornerBottomRight | UIRectCornerAllCorners
- @param cornerRadii 需要设置的圆角大小 例如 CGSizeMake(20.0f, 20.0f)
+ @param cornerRadii 需要设置的圆角大小 
  @param cornerRect 需要设置的圆角view的rect
  */
 - (void)fd_addShadow:(nullable UIColor*)shadowColor
         shadowOffset:(CGSize)shadowOffset
         shadowRadius:(CGFloat)shadowRadius
       roundedCorners:(UIRectCorner)corners
-         cornerRadii:(CGSize)cornerRadii
+         cornerRadii:(float)cornerRadii
           cornerRect:(CGRect)cornerRect;
 /**
  Converts a point from the receiver's coordinate system to that of the specified view or window.
@@ -153,7 +174,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) CGPoint fd_origin;      ///< Shortcut for frame.origin.
 @property (nonatomic) CGSize  fd_size;        ///< Shortcut for frame.size.
 
-@property (nonatomic) IBInspectable CGFloat fd_LayerCornerRadius;         ///< Shortcut for layer.cornerRadius
+@property (nonatomic) IBInspectable CGFloat fd_layerCornerRadius;         ///< Shortcut for layer.cornerRadius
+
+@property (nonatomic) BOOL fd_layerMaskToBounds;///< Shortcut for  layer.masksToBounds
+
 @end
 
 NS_ASSUME_NONNULL_END

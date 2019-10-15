@@ -503,6 +503,16 @@ static NSTimeInterval _yy_CGImageSourceGetGIFFrameDelayAtIndex(CGImageSourceRef 
     return [self fd_imageByRoundCornerRadius:radius borderWidth:0 borderColor:nil];
 }
 
+- (nullable UIImage *)fd_imageByRoundCornerRadius:(CGFloat)radius
+                                          corners:(UIRectCorner)corners {
+    return [self fd_imageByRoundCornerRadius:radius
+                                  corners:corners
+                              borderWidth:0
+                              borderColor:nil
+                           borderLineJoin:kCGLineJoinMiter];
+}
+
+
 - (UIImage *)fd_imageByRoundCornerRadius:(CGFloat)radius
                           borderWidth:(CGFloat)borderWidth
                           borderColor:(UIColor *)borderColor {

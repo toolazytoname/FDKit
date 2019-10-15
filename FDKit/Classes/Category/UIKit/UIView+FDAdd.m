@@ -13,6 +13,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "FDCategoriesMacro.h"
 #import "NSArray+FDAdd.h"
+#import "UIBezierPath+FDAdd.h"
 
 FDSYNTH_DUMMY_CLASS(UIView_FDAdd)
 
@@ -124,10 +125,7 @@ FDSYNTH_DUMMY_CLASS(UIView_FDAdd)
 
 - (void)fd_addRoundedCornersAbsoulute:(UIRectCorner)corners
                             radii:(CGSize)radii {
-    UIBezierPath* rounded = [UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:corners cornerRadii:radii];
-    CAShapeLayer* shape = [[CAShapeLayer alloc] init];
-    [shape setPath:rounded.CGPath];
-    self.layer.mask = shape;
+    [self fd_addRoundedCornersRelative:corners radii:radii viewRect:self.bounds];
 }
 
 - (void)fd_addRoundedCornersRelative:(UIRectCorner)corners
@@ -140,15 +138,77 @@ FDSYNTH_DUMMY_CLASS(UIView_FDAdd)
     self.layer.mask = shape;
 }
 
+- (void)fd_addRoundedCornersWithRadii:(float)radii {
+    [self fd_addRoundedCornersRelativeWithRadii:radii viewRect:self.bounds];
+}
+
+- (void)fd_addRoundedCornersRelativeWithRadii:(float)radii
+                                     viewRect:(CGRect)rect {
+//一般都用使用Monsary布局,所以使用这个方法,因为当你进行相对布局的时候系统是不确定你的rect的,所以需要从外部传入
+    [self fd_addRoundedCornersRelativeWithRoundedRect:rect
+                                  topLeftCornerRadius:radii
+                                 topRightCornerRadius:radii
+                               bottomLeftCornerRadius:radii
+                              bottomRightCornerRadius:radii
+                                      backgroundColor:self.backgroundColor
+                                          borderWidth:0
+                                          borderColor:nil
+     ];
+}
+
+- (void)fd_addRoundedCornersRelativeWithRoundedRect:(CGRect)rect
+                                topLeftCornerRadius:(CGFloat)topLeftCornerRadius
+                               topRightCornerRadius:(CGFloat)topRightCornerRadius
+                             bottomLeftCornerRadius:(CGFloat)bottomLeftCornerRadius
+                            bottomRightCornerRadius:(CGFloat)bottomRightCornerRadius
+                                    backgroundColor:(nullable UIColor *)backgroundColor
+                                        borderWidth:(CGFloat)borderWidth
+                                        borderColor:(nullable UIColor *)borderColor {
+    //后台线程
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        CGSize size = rect.size;
+        UIGraphicsBeginImageContextWithOptions(size, NO, 0);
+        CGContextRef cxt = UIGraphicsGetCurrentContext();
+        
+        CGContextSetFillColorWithColor(cxt, backgroundColor.CGColor);
+        CGContextSetStrokeColorWithColor(cxt, borderColor.CGColor);
+        CGContextSetLineWidth(cxt, borderWidth);
+        
+        CGFloat halfBorderWidth = borderWidth / 2.0;
+        CGFloat width = size.width;
+        CGFloat height = size.height;
+
+        //右下角
+        CGContextMoveToPoint(cxt, width - halfBorderWidth, height - bottomRightCornerRadius - halfBorderWidth);
+        CGContextAddArcToPoint(cxt, width - halfBorderWidth, height - halfBorderWidth, height - bottomRightCornerRadius - halfBorderWidth, height - halfBorderWidth, bottomRightCornerRadius);//右下角
+        CGContextAddArcToPoint(cxt, 0 + halfBorderWidth, height - halfBorderWidth, 0 + halfBorderWidth, height-bottomLeftCornerRadius - halfBorderWidth, bottomLeftCornerRadius);//左下角
+        CGContextAddArcToPoint(cxt, 0 + halfBorderWidth, 0 + halfBorderWidth, topLeftCornerRadius + halfBorderWidth, 0 + halfBorderWidth, topLeftCornerRadius);//左上角
+        CGContextAddArcToPoint(cxt, width - halfBorderWidth , 0 + halfBorderWidth, width - halfBorderWidth, 0 + topRightCornerRadius + halfBorderWidth, topRightCornerRadius);//右上角
+        CGContextClosePath(cxt);
+        CGContextDrawPath(cxt, kCGPathFillStroke);
+        UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, height, height)];
+            [imageView setImage:image];
+            [self insertSubview:imageView atIndex:0];
+            self.backgroundColor = self.superview.backgroundColor;
+        });
+    }) ;
+    
+}
+
+
 - (void)fd_addShadow:(nullable UIColor*)shadowColor
         shadowOffset:(CGSize)shadowOffset
         shadowRadius:(CGFloat)shadowRadius
       roundedCorners:(UIRectCorner)corners
-         cornerRadii:(CGSize)cornerRadii
+         cornerRadii:(float)cornerRadii
           cornerRect:(CGRect)cornerRect {
 //如果在同一个layer上实现两个效果，把masksToBounds开了，阴影无法显示，关了的话其上的View又会遮住圆角。解决的方式只能是再加一层layer。
     cornerRect = CGRectIsEmpty(cornerRect)?self.bounds:cornerRect;
-    [self fd_addRoundedCornersRelative:corners radii:cornerRadii viewRect:cornerRect];
+    [self fd_addRoundedCornersRelative:corners radii:CGSizeMake(cornerRadii, cornerRadii) viewRect:cornerRect];
     CALayer *shadowLayer = [CALayer layer];
     shadowLayer.frame = self.layer.frame;
     
@@ -333,11 +393,19 @@ FDSYNTH_DUMMY_CLASS(UIView_FDAdd)
     self.frame = frame;
 }
 
-- (CGFloat)fd_LayerCornerRadius {
+- (CGFloat)fd_layerCornerRadius {
     return self.layer.cornerRadius;
 }
 
-- (void)setFd_LayerCornerRadius:(CGFloat)cornerRadius {
+- (void)setFd_layerCornerRadius:(CGFloat)cornerRadius {
     self.layer.cornerRadius = cornerRadius;
+}
+
+- (BOOL)fd_layerMaskToBounds {
+    return self.layer.masksToBounds;
+}
+
+- (void)setFd_layerMaskToBounds:(BOOL)layerMaskToBounds {
+    self.layer.masksToBounds = layerMaskToBounds;
 }
 @end

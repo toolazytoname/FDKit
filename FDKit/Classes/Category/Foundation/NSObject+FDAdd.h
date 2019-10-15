@@ -297,6 +297,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (nullable id)fd_deepCopyWithArchiver:(Class)archiver unarchiver:(Class)unarchiver;
 
+
+///   short for [self mutableArrayValueForKey:NSStringFromSelector(selector)]
+/// @param selector selector
+- (NSMutableArray *)fd_mutableArrayValueForKeySelector:(SEL)selector;
+
+- (NSMutableSet *)fd_mutableSetValueForKeySelector:(SEL)selector;
+
+- (NSMutableOrderedSet *)fd_mutableOrderedSetValueForKeySelector:(SEL)selector ;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

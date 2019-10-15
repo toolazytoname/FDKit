@@ -214,15 +214,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)fd_removeEmptyStringObjects;
 
-
-
-- (void)fd_KVO_prependObject:(id)anObject;
-
-
-
-
-
-
 @end
 
 NS_ASSUME_NONNULL_END

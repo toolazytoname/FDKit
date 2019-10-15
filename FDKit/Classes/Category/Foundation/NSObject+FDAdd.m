@@ -399,4 +399,17 @@ else if (size <= 4 * _size_ ) { \
     return obj;
 }
 
+
+- (NSMutableArray *)fd_mutableArrayValueForKeySelector:(SEL)selector {
+    return [self mutableArrayValueForKey:NSStringFromSelector(selector)];
+}
+
+- (NSMutableSet *)fd_mutableSetValueForKeySelector:(SEL)selector {
+    return [self mutableSetValueForKey:NSStringFromSelector(selector)];
+}
+
+- (NSMutableOrderedSet *)fd_mutableOrderedSetValueForKeySelector:(SEL)selector {
+    return [self mutableOrderedSetValueForKey:NSStringFromSelector(selector)];
+}
+
 @end

@@ -1,8 +1,8 @@
 #!/bin/sh
 #example ./
 
-# router_package_install.sh koolproxy  http://www.17luyouqi.com/download/merlin/mips/koolproxy.tar.gz
-# router_package_install.sh shadowsocks https://raw.githubusercontent.com/hq450/fancyss_history_package/master/fancyss_arm/shadowsocks_4.1.7.tar.gz
+# ./router_package_install.sh koolproxy  https://github.com/toolazytoname/FDKit/raw/master/FDKit/Shell/RouterShell/package/87/koolproxy.tar.gz
+# ./router_package_install.sh shadowsocks https://github.com/toolazytoname/FDKit/raw/master/FDKit/Shell/RouterShell/package/87/shadowsocks_4.1.7.tar.gz
 
 package_name=$1
 package_url=$2

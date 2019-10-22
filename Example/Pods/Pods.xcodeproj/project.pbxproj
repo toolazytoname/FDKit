@@ -201,6 +201,8 @@
 		63583DDA2339F5FB001E7470 /* FDIsInitialDump.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63583DD82339F5FB001E7470 /* FDIsInitialDump.mm */; };
 		6359CFE79A1C91EADE40EF3063F0C42D /* Compiler.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C79A9212017FCE2EBD2004C12617587 /* Compiler.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		63BA6FBA10304F4828DE97C0FA63ED9D /* UIProgressView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = FD7319F2DE3BFAA8F396820FFC533EB2 /* UIProgressView+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		63D0DE0C2355CA3D00AC5703 /* UIImageView+FDAdd.h in Headers */ = {isa = PBXBuildFile; fileRef = 63D0DE0A2355CA3D00AC5703 /* UIImageView+FDAdd.h */; };
+		63D0DE0D2355CA3D00AC5703 /* UIImageView+FDAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D0DE0B2355CA3D00AC5703 /* UIImageView+FDAdd.m */; };
 		63D964296265074FAD38DF9BBA24ACA3 /* UIImageView+HighlightedWebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 62129D2D017ACB87910004A31E117309 /* UIImageView+HighlightedWebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		64466CBB69F24C4340D9BCCA25D761C0 /* KSJSONCodecObjC.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DA3DDAEDC3DBF26F08727F6D225682C /* KSJSONCodecObjC.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		645E867A8EA328B43D3B3575F4E00865 /* YYCache-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 39726AD5B07E9DFF73B54EEB6C6BDF08 /* YYCache-dummy.m */; };
@@ -824,6 +826,8 @@
 		63583DD72339F5FB001E7470 /* FDIsInitialDump.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDIsInitialDump.h; sourceTree = "<group>"; };
 		63583DD82339F5FB001E7470 /* FDIsInitialDump.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = FDIsInitialDump.mm; sourceTree = "<group>"; };
 		63C2EFC710EF8F0C15666CC744572204 /* UIView+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+WebCache.h"; path = "SDWebImage/UIView+WebCache.h"; sourceTree = "<group>"; };
+		63D0DE0A2355CA3D00AC5703 /* UIImageView+FDAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+FDAdd.h"; sourceTree = "<group>"; };
+		63D0DE0B2355CA3D00AC5703 /* UIImageView+FDAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+FDAdd.m"; sourceTree = "<group>"; };
 		6417AC83C0B18AF1941A1FB3846C88C0 /* AFNetworking.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = AFNetworking.modulemap; sourceTree = "<group>"; };
 		643211F869DC301981023DA1BA8F280E /* KSFileUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KSFileUtils.h; path = Source/KSCrash/Recording/Tools/KSFileUtils.h; sourceTree = "<group>"; };
 		645540F67FFD5E1795237ECA7C7E87E7 /* UIBezierPath+FDAdd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+FDAdd.h"; sourceTree = "<group>"; };
@@ -2320,6 +2324,8 @@
 				94EB2E2C23854D95A058172664A8F0CC /* UIView+FDAdd.m */,
 				783B0873DD2502AD8EA949001F63FB5F /* UIViewController+FDAdd.h */,
 				A09C8CCAD0A3200A49812E193E9B7389 /* UIViewController+FDAdd.m */,
+				63D0DE0A2355CA3D00AC5703 /* UIImageView+FDAdd.h */,
+				63D0DE0B2355CA3D00AC5703 /* UIImageView+FDAdd.m */,
 			);
 			name = UIKit;
 			path = FDKit/Classes/Category/UIKit;
@@ -2691,6 +2697,7 @@
 				995AB84949017936150ECBEBB68BBB9B /* FDCSessionManager.h in Headers */,
 				1D46EC26E7768B48084E61D0C1CF025E /* FDDataViewProtocol.h in Headers */,
 				D6666E5DEB3AC92AB7B882BBF8DE5DA3 /* FDDebugObserver.h in Headers */,
+				63D0DE0C2355CA3D00AC5703 /* UIImageView+FDAdd.h in Headers */,
 				0CD5FD020624CF7B83A0DCA45504B4B5 /* FDFMDB.h in Headers */,
 				2C794EC0801F452EBD78FEA14AF44D0E /* FDFontStateButton.h in Headers */,
 				7CCAE5DE98AFA494FFF2D5890BA48507 /* FDGuideView.h in Headers */,
@@ -3197,6 +3204,7 @@
 				A5663F2E61990E8DEC19912758E59D7C /* FDCAntiDebug.m in Sources */,
 				1A28C186426A802F4FCAEEA1C1DB198C /* FDCCustomRequest.m in Sources */,
 				B9E6645D0CD0F67AD9FCE03C6E4EAD8B /* FDCGUtilities.m in Sources */,
+				63D0DE0D2355CA3D00AC5703 /* UIImageView+FDAdd.m in Sources */,
 				ABC4198CFE2EA777E9EF6B67DA42C18D /* FDCNetworkCache.m in Sources */,
 				C27D9F63547A20CA396D81DA588663AA /* FDCrashInstallationCustom.m in Sources */,
 				883351448826987F85CB419583B6C2CF /* FDCrashManager.m in Sources */,

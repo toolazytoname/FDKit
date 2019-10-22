@@ -87,7 +87,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 
-/// 新写的API
+/// 新写的API，CG画了一个切除圆角的的图形，add上，然后self 的背景色设置为与父视图一致。
 /// @param radii 半径
 - (void)fd_addRoundedCornersWithRadii:(float)radii;
 
